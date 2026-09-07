@@ -46,9 +46,23 @@
       </div>
     </aside>
 
+    <button
+      id="mobileSidebarBackdrop"
+      class="mobile-sidebar-backdrop"
+      type="button"
+      aria-label="Fechar menu"
+    ></button>
+
     <main class="workspace">
 
       <header class="topbar">
+        <button
+          id="btnMobileSidebar"
+          class="mobile-menu-trigger"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >☰</button>
         <div>
           <h1>Sala de Comando</h1>
           <p>NexoTerraCore</p>
@@ -1083,13 +1097,48 @@
   <script src="./js/turing.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("btnSidebar");
-  const sidebar = document.getElementById("sidebar");
-  if (btn && sidebar) {
-    btn.addEventListener("click", () => {
-      document.body.classList.toggle("sidebar-collapsed");
-    });
+  const body = document.body;
+  const btnDesktop = document.getElementById("btnSidebar");
+  const btnMobile = document.getElementById("btnMobileSidebar");
+  const backdrop = document.getElementById("mobileSidebarBackdrop");
+  const mediaMobile = window.matchMedia("(max-width: 720px)");
+
+  function menuMobile(aberto) {
+    body.classList.toggle("mobile-menu-open", aberto);
+    btnMobile?.setAttribute("aria-expanded", aberto ? "true" : "false");
   }
+
+  function prepararLayout() {
+    if (mediaMobile.matches) {
+      body.classList.remove("sidebar-collapsed");
+    } else {
+      menuMobile(false);
+    }
+  }
+
+  btnDesktop?.addEventListener("click", () => {
+    if (mediaMobile.matches) {
+      menuMobile(false);
+      return;
+    }
+
+    body.classList.toggle("sidebar-collapsed");
+  });
+
+  btnMobile?.addEventListener("click", () => {
+    menuMobile(!body.classList.contains("mobile-menu-open"));
+  });
+
+  backdrop?.addEventListener("click", () => menuMobile(false));
+
+  document.querySelectorAll(".menu-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      if (mediaMobile.matches) menuMobile(false);
+    });
+  });
+
+  mediaMobile.addEventListener?.("change", prepararLayout);
+  prepararLayout();
 });
 </script>
 

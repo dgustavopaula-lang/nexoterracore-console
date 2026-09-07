@@ -1793,3 +1793,193 @@ body {
     max-width: 94%;
   }
 }
+
+
+/* NEXOTERRACORE MOBILE DRAWER V2 */
+
+.mobile-menu-trigger,
+.mobile-sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  body.mobile-menu-open {
+    overflow: hidden;
+  }
+
+  .app-shell {
+    display: block;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1100;
+
+    width: min(86vw, 320px) !important;
+    height: 100dvh;
+
+    padding: 16px;
+
+    transform: translateX(-102%);
+    transition: transform .22s ease;
+
+    overflow-y: auto;
+
+    border-right: 1px solid var(--border);
+    box-shadow: 22px 0 60px rgba(0,0,0,.42);
+  }
+
+  body.mobile-menu-open .sidebar {
+    transform: translateX(0);
+  }
+
+  body.sidebar-collapsed .sidebar {
+    width: min(86vw, 320px) !important;
+  }
+
+  body.sidebar-collapsed .workspace {
+    margin-left: 0 !important;
+  }
+
+  body.sidebar-collapsed .brand strong,
+  body.sidebar-collapsed .brand span,
+  body.sidebar-collapsed .sidebar-footer,
+  body.sidebar-collapsed .menu-item {
+    font-size: inherit;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    gap: 4px;
+  }
+
+  .menu-item {
+    min-height: 46px;
+    font-size: 14px !important;
+  }
+
+  .sidebar-footer {
+    margin-top: 20px;
+  }
+
+  .mobile-sidebar-backdrop {
+    display: block;
+
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    border: 0;
+
+    background: rgba(1, 7, 10, .72);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      opacity .2s ease,
+      visibility .2s ease;
+  }
+
+  body.mobile-menu-open .mobile-sidebar-backdrop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-trigger {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--panel-2);
+    color: var(--text);
+
+    font-size: 21px;
+    cursor: pointer;
+  }
+
+  .workspace {
+    width: 100%;
+    margin-left: 0 !important;
+    padding: 0 12px 24px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+
+    min-height: 64px;
+
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .topbar > div:first-of-type {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .topbar h1 {
+    font-size: 17px;
+  }
+
+  .topbar-actions {
+    flex: 0 0 100%;
+  }
+
+  .system-status {
+    margin-left: auto;
+  }
+
+  .content {
+    width: 100%;
+    margin-top: 12px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .overview-grid,
+  .operational-grid,
+  .admin-grid,
+  .admin-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    gap: 14px;
+  }
+
+  .table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
