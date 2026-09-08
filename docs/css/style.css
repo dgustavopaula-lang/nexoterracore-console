@@ -2096,3 +2096,117 @@ body {
 }
 
 /* === TURING MOBILE COMPACT END === */
+
+/* === TURING MOBILE UX V2 START === */
+
+@media (max-width: 600px) {
+
+  #turingMessages {
+    padding: 6px 6px 82px !important;
+    gap: 6px !important;
+  }
+
+  .turing-message {
+    max-width: 96% !important;
+    padding: 7px 9px !important;
+    margin: 0 !important;
+    border-radius: 11px !important;
+  }
+
+  .turing-message-author {
+    font-size: 10px !important;
+    margin-bottom: 4px !important;
+    line-height: 1.1 !important;
+  }
+
+  .turing-message-content {
+    font-size: 13px !important;
+    line-height: 1.36 !important;
+  }
+
+  .turing-message-content p {
+    margin: 0 0 5px !important;
+  }
+
+  .turing-message-content p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  #turingInput {
+    width: 100% !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    max-height: 96px !important;
+    padding: 9px 11px !important;
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+    border-radius: 12px !important;
+    resize: none !important;
+    box-sizing: border-box !important;
+  }
+
+  #btnTuringEnviar {
+    width: 46px !important;
+    min-width: 46px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+    font-size: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #btnTuringEnviar::after {
+    content: "➤";
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* coloca input e botão lado a lado */
+  #turingInput,
+  #btnTuringEnviar {
+    vertical-align: middle !important;
+  }
+
+  #turingInput {
+    display: inline-block !important;
+    width: calc(100% - 58px) !important;
+    margin-right: 6px !important;
+  }
+
+  /* reduz textos auxiliares abaixo do campo */
+  #turingInput + small,
+  #turingInput ~ small,
+  .turing-help,
+  .turing-hint {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    margin-top: 3px !important;
+  }
+
+  /* reduz o bloco institucional abaixo do chat */
+  [data-view="turing"] .card,
+  [data-view="turing"] .panel,
+  [data-view="turing"] .section {
+    margin-top: 10px !important;
+  }
+
+  [data-view="turing"] .card h2,
+  [data-view="turing"] .panel h2,
+  [data-view="turing"] .section h2 {
+    font-size: 18px !important;
+    margin: 6px 0 !important;
+  }
+
+  [data-view="turing"] .card p,
+  [data-view="turing"] .panel p,
+  [data-view="turing"] .section p {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    margin: 4px 0 !important;
+  }
+}
+
+/* === TURING MOBILE UX V2 END === */
