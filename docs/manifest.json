@@ -1,7 +1,7 @@
 {
-  "name": "NexoTerraCore",
-  "short_name": "NexoTerraCore",
-  "description": "Sala de Comando e Turing AI do NexoTerraCore",
+  "name": "Nexus Terra Core",
+  "short_name": "Nexus Terra Core",
+  "description": "Sala de Comando e Turing AI do Nexus Terra Core",
   "start_url": "./painel/",
   "scope": "./",
   "display": "standalone",

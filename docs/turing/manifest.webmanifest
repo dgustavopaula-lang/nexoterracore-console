@@ -1,8 +1,8 @@
 {
   "id": "/turing/",
-  "name": "Turing — NexoTerraCore",
+  "name": "Turing — Nexus Terra Core",
   "short_name": "Turing",
-  "description": "Agente de inteligência do NexoTerraCore",
+  "description": "Agente de inteligência do Nexus Terra Core",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

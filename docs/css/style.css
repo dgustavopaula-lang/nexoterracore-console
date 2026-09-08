@@ -732,7 +732,7 @@ button:active {
 }
 
 
-/* NexoTerraCore Console — expansão operacional */
+/* Nexus Terra Core Console — expansão operacional */
 .sidebar-toggle {
   width: 42px;
   height: 42px;
@@ -820,7 +820,7 @@ body.sidebar-collapsed .menu-item::first-letter {
 
 
 /* =========================================================
-   NEXOTERRACORE — LOGIN PROFISSIONAL
+   NEXUS TERRA CORE — LOGIN PROFISSIONAL
    ========================================================= */
 
 .login-modal {
@@ -1083,7 +1083,7 @@ body.sidebar-collapsed .menu-item::first-letter {
 }
 
 /* =========================================================
-   NEXOTERRACORE — CORES DA CENTRAL ADMINISTRATIVA
+   NEXUS TERRA CORE — CORES DA CENTRAL ADMINISTRATIVA
    ========================================================= */
 
 .admin-grid {
@@ -1308,7 +1308,7 @@ body.sidebar-collapsed .menu-item::first-letter {
 
 
 /* =========================================================
-   NEXOTERRACORE — PÁGINA DE ACESSO
+   NEXUS TERRA CORE — PÁGINA DE ACESSO
    ========================================================= */
 
 body {
@@ -1599,7 +1599,7 @@ body {
 
 
 /* =========================================================
-   NEXOTERRACORE TURING CHAT
+   NEXUS TERRA CORE TURING CHAT
    ========================================================= */
 
 .turing-shell {
@@ -1795,7 +1795,7 @@ body {
 }
 
 
-/* NEXOTERRACORE MOBILE DRAWER V2 */
+/* NEXUS TERRA CORE MOBILE DRAWER V2 */
 
 .mobile-menu-trigger,
 .mobile-sidebar-backdrop {
