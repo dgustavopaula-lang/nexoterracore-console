@@ -2,7 +2,7 @@
   "name": "NexoTerraCore",
   "short_name": "NexoTerraCore",
   "description": "Sala de Comando e Turing AI do NexoTerraCore",
-  "start_url": "./painel.html",
+  "start_url": "./painel/",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
