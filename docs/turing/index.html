@@ -56,5 +56,86 @@ add('turing','Olá. Eu sou o Turing. Este é meu acesso público. Posso explicar
 fetch('https://nexoterracore-api.onrender.com/api/health').then(r=>r.ok?r.json():Promise.reject()).then(()=>document.getElementById('apiStatus').textContent='Núcleo Nexus Terra Core online').catch(()=>document.getElementById('apiStatus').textContent='Interface pública online');
 if('serviceWorker' in navigator){navigator.serviceWorker.register('../service-worker.js').catch(()=>{})}
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const candidates = [
+    '#turingInput',
+    '#messageInput',
+    '#chatInput',
+    '#pergunta',
+    'textarea',
+    'input[type="text"]'
+  ];
+
+  let chatInput = null;
+  for (const selector of candidates) {
+    chatInput = document.querySelector(selector);
+    if (chatInput) break;
+  }
+
+  function aplicarPergunta(el) {
+    if (!chatInput || !el) return;
+
+    const texto =
+      el.dataset.question ||
+      el.dataset.pergunta ||
+      el.getAttribute('data-prompt') ||
+      el.textContent.trim();
+
+    if (!texto) return;
+
+    chatInput.value = texto;
+    chatInput.dispatchEvent(new Event('input', { bubbles: true }));
+    chatInput.dispatchEvent(new Event('change', { bubbles: true }));
+    chatInput.focus();
+
+    try {
+      chatInput.setSelectionRange(texto.length, texto.length);
+    } catch (e) {}
+
+    chatInput.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    const el = e.target.closest(
+      '[data-question], [data-pergunta], [data-prompt], .suggestion, .question, .quick-question, .prompt-btn, button'
+    );
+
+    if (!el) return;
+
+    const txt = (el.textContent || '').trim();
+
+    if (
+      el.matches('[data-question], [data-pergunta], [data-prompt], .suggestion, .question, .quick-question, .prompt-btn') ||
+      /^(O que é|Como funciona|O que são|Explique|Como posso)/i.test(txt)
+    ) {
+      e.preventDefault();
+      aplicarPergunta(el);
+    }
+  }, true);
+
+  document.addEventListener('touchend', function (e) {
+    const el = e.target.closest(
+      '[data-question], [data-pergunta], [data-prompt], .suggestion, .question, .quick-question, .prompt-btn, button'
+    );
+
+    if (!el) return;
+
+    const txt = (el.textContent || '').trim();
+
+    if (
+      el.matches('[data-question], [data-pergunta], [data-prompt], .suggestion, .question, .quick-question, .prompt-btn') ||
+      /^(O que é|Como funciona|O que são|Explique|Como posso)/i.test(txt)
+    ) {
+      aplicarPergunta(el);
+    }
+  }, { passive: true });
+});
+</script>
+
 </body>
 </html>
