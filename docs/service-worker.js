@@ -1,9 +1,10 @@
-const CACHE = "nexoterracore-mobile-v5";
+const CACHE = "nexoterracore-mobile-v6";
 
 const APP_SHELL = [
   "./",
   "./painel/",
   "./turing/",
+  "./turing/manifest.webmanifest",
   "./manifest.json",
   "./css/style.css",
   "./js/app.js",
