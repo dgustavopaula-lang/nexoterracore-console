@@ -126,8 +126,7 @@
     <div class="ntcoin-card">
       <strong>100 NTCoins</strong>
       <span>Pacote inicial</span>
-      <button class="ntcoin-buy"
-        data-ntcoins="100">
+      <button class="ntcoin-buy" type="button" data-ntcoins="100">
         Comprar
       </button>
     </div>
@@ -135,17 +134,15 @@
     <div class="ntcoin-card">
       <strong>500 NTCoins</strong>
       <span>Uso frequente</span>
-      <button class="ntcoin-buy"
-        data-ntcoins="500">
+      <button class="ntcoin-buy" type="button" data-ntcoins="500">
         Comprar
       </button>
     </div>
 
     <div class="ntcoin-card">
-      <strong>1.000 NTCoins</strong>
-      <span>Maior volume de uso</span>
-      <button class="ntcoin-buy"
-        data-ntcoins="1000">
+      <strong>1.500 NTCoins</strong>
+      <span>Maior volume de uso · +250 bônus</span>
+      <button class="ntcoin-buy" type="button" data-ntcoins="1500">
         Comprar
       </button>
     </div>
@@ -276,31 +273,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-
 <script id="ntcoins-script">
+const NTC_CHECKOUT_URL = 'https://nexoterracore-api.onrender.com/app/turing/';
+const NTC_PACKAGES = {
+  '100': 'NTC_START',
+  '500': 'NTC_PRO',
+  '1500': 'NTC_BUSINESS'
+};
+
 document.querySelectorAll('.ntcoin-buy').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    const quantidade = btn.dataset.ntcoins;
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
 
-    const campo = document.getElementById('input');
+    const pacote = NTC_PACKAGES[btn.dataset.ntcoins];
+    if (!pacote) return;
 
-    if(campo){
-      campo.value =
-        'Quero comprar ' + quantidade +
-        ' NTCoins. Como funciona?';
-
-      campo.dispatchEvent(
-        new Event('input',{bubbles:true})
-      );
-
-      campo.scrollIntoView({
-        behavior:'smooth',
-        block:'center'
-      });
-
-      campo.focus();
-    }
-  });
+    window.location.href =
+      NTC_CHECKOUT_URL + '?comprar=' + encodeURIComponent(pacote);
+  }, true);
 });
 </script>
 
