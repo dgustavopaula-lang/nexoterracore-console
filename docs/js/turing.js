@@ -84,7 +84,7 @@ const TuringChat = {
     if (!this.token) {
       this.adicionarMensagem(
         "turing",
-        "Acesse a Sala de Comando primeiro. Preciso de uma sessão autenticada para consultar o núcleo Nexus Terra Core."
+        "Acesse a Sala de Comando primeiro. Preciso de uma sessão autenticada para consultar o núcleo NexoTerraCore."
       );
 
       document.querySelector("#modalLogin")?.classList.remove("oculto");
@@ -100,7 +100,7 @@ const TuringChat = {
 
     const placeholder = this.adicionarMensagem(
       "turing",
-      "Consultando o núcleo Nexus Terra Core..."
+      "Consultando o núcleo NexoTerraCore..."
     );
 
     try {
@@ -175,7 +175,7 @@ const TuringChat = {
 
     this.adicionarMensagem(
       "turing",
-      "Olá. Eu sou o Turing, agente de IA do Nexus Terra Core. Posso trabalhar com o contexto autorizado da sua sessão e dos módulos conectados ao Console."
+      "Olá. Eu sou o Turing, agente de IA do NexoTerraCore. Posso trabalhar com o contexto autorizado da sua sessão e dos módulos conectados ao Console."
     );
   },
 
@@ -206,7 +206,7 @@ const TuringChat = {
     this.limpar();
     this.atualizarStatus();
 
-    console.log("Turing Chat integrado ao Nexus Terra Core Console");
+    console.log("Turing Chat integrado ao NexoTerraCore Console");
   }
 };
 

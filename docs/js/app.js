@@ -456,7 +456,7 @@ const SalaDeComando = {
   },
 
   iniciar() {
-    console.log("Nexus Terra Core — Sala de Comando iniciada");
+    console.log("NexoTerraCore — Sala de Comando iniciada");
     this.verificarAPI();
     this.configurarNavegacao();
     this.configurarLogin();

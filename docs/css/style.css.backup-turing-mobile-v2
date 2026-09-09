@@ -732,7 +732,7 @@ button:active {
 }
 
 
-/* Nexus Terra Core Console — expansão operacional */
+/* NexoTerraCore Console — expansão operacional */
 .sidebar-toggle {
   width: 42px;
   height: 42px;
