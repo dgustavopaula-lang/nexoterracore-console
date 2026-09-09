@@ -223,3 +223,13 @@ document.addEventListener("DOMContentLoaded", () => {
   script.defer = true;
   document.head.appendChild(script);
 })();
+
+(function carregarControlPlaneOperacional() {
+  if (document.querySelector('script[data-control-plane="1"]')) return;
+
+  const script = document.createElement("script");
+  script.src = "../js/control-plane.js?v=20260909-01";
+  script.dataset.controlPlane = "1";
+  script.defer = true;
+  document.head.appendChild(script);
+})();
