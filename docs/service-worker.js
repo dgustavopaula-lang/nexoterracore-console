@@ -1,4 +1,4 @@
-const CACHE = "nexoterracore-mobile-v8";
+const CACHE = "nexoterracore-mobile-v9";
 
 const APP_SHELL = [
   "./",
@@ -10,6 +10,7 @@ const APP_SHELL = [
   "./js/app.js",
   "./js/turing.js",
   "./js/admin-control.js",
+  "./js/control-plane.js",
   "./icons/nexoterracore-192.png",
   "./icons/nexoterracore-512.png"
 ];
