@@ -213,3 +213,13 @@ const TuringChat = {
 document.addEventListener("DOMContentLoaded", () => {
   TuringChat.iniciar();
 });
+
+(function carregarAdministracaoOperacional() {
+  if (document.querySelector('script[data-admin-control="1"]')) return;
+
+  const script = document.createElement("script");
+  script.src = "../js/admin-control.js?v=20260909-01";
+  script.dataset.adminControl = "1";
+  script.defer = true;
+  document.head.appendChild(script);
+})();
