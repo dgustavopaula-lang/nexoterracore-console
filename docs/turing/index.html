@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071419">
-  <meta name="description" content="Turing Público — agente de inteligência do Nexus Terra Core.">
-  <title>Turing | Nexus Terra Core</title>
+  <meta name="description" content="Turing Público — agente de inteligência do NexoTerraCore.">
+  <title>Turing | NexoTerraCore</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <style>
     :root{--bg:#071116;--panel:#0d1a20;--panel2:#111f26;--line:#20343e;--text:#f5f7f8;--muted:#92a2aa;--orange:#ff6b1a;--green:#09d3a7;--max:1120px}
@@ -106,7 +106,7 @@
 <body>
   <header><div class="wrap top"><a class="brand" href="../">NexoTerra<span>Core</span></a><div class="actions"><a class="btn" href="../">Plataforma</a><a class="btn primary" href="../painel/">Entrar no Console</a></div></div></header>
   <main class="wrap">
-    <section class="hero"><div class="eyebrow">TURING · ACESSO PÚBLICO</div><h1>Converse com o Turing.</h1><p>Conheça o Nexus Terra Core, sua arquitetura, API, Console, PWA e conceitos principais. Dados privados e operações internas continuam protegidos por autenticação.</p><div class="status"><span class="dot"></span><span id="apiStatus">Verificando núcleo...</span></div></section>
+    <section class="hero"><div class="eyebrow">TURING · ACESSO PÚBLICO</div><h1>Converse com o Turing.</h1><p>Conheça o NexoTerraCore, sua arquitetura, API, Console, PWA e conceitos principais. Dados privados e operações internas continuam protegidos por autenticação.</p><div class="status"><span class="dot"></span><span id="apiStatus">Verificando núcleo...</span></div></section>
     
 <section class="ntcoins" id="ntcoins">
   <div class="ntcoins-head">
@@ -115,7 +115,7 @@
       <h2>Use o Turing conforme precisar.</h2>
       <p class="ntcoins-desc">
         NTCoins são créditos internos para utilização de recursos e serviços
-        do ecossistema Nexus Terra Core.
+        do ecossistema NexoTerraCore.
       </p>
     </div>
     <div class="ntcoins-badge">Créditos internos</div>
@@ -156,18 +156,18 @@
 </section>
 
 <section class="layout">
-      <aside class="side"><div class="orb">T</div><h2>Turing</h2><p>Agente de inteligência do Nexus Terra Core.</p><div class="mode"><strong>Modo público</strong><span>Conhecimento institucional e técnico, sem acesso a dados privados, tenants ou fazendas.</span></div><div class="chips"><button class="chip" data-q="O que é o Nexus Terra Core?">O que é o Nexus Terra Core?</button><button class="chip" data-q="O que é o Turing?">O que é o Turing?</button><button class="chip" data-q="Como funciona a API?">Como funciona a API?</button><button class="chip" data-q="O que é multitenancy?">O que é multitenancy?</button><button class="chip" data-q="O que são NTCoins?">O que são NTCoins?</button><button class="chip" data-q="Posso usar no celular?">Posso usar no celular?</button></div><div class="notice">Para consultar dados operacionais, patrimônio, financeiro, agro ou informações da sua organização, use o Console autenticado.</div></aside>
-      <div class="chat"><div id="messages" class="messages"></div><div class="compose"><textarea id="input" maxlength="500" placeholder="Pergunte ao Turing sobre o Nexus Terra Core..."></textarea><div class="compose-foot"><span>Enter para enviar · Shift+Enter quebra linha</span><button id="send" class="btn primary" type="button">Enviar</button></div></div></div>
+      <aside class="side"><div class="orb">T</div><h2>Turing</h2><p>Agente de inteligência do NexoTerraCore.</p><div class="mode"><strong>Modo público</strong><span>Conhecimento institucional e técnico, sem acesso a dados privados, tenants ou fazendas.</span></div><div class="chips"><button class="chip" data-q="O que é o NexoTerraCore?">O que é o NexoTerraCore?</button><button class="chip" data-q="O que é o Turing?">O que é o Turing?</button><button class="chip" data-q="Como funciona a API?">Como funciona a API?</button><button class="chip" data-q="O que é multitenancy?">O que é multitenancy?</button><button class="chip" data-q="O que são NTCoins?">O que são NTCoins?</button><button class="chip" data-q="Posso usar no celular?">Posso usar no celular?</button></div><div class="notice">Para consultar dados operacionais, patrimônio, financeiro, agro ou informações da sua organização, use o Console autenticado.</div></aside>
+      <div class="chat"><div id="messages" class="messages"></div><div class="compose"><textarea id="input" maxlength="500" placeholder="Pergunte ao Turing sobre o NexoTerraCore..."></textarea><div class="compose-foot"><span>Enter para enviar · Shift+Enter quebra linha</span><button id="send" class="btn primary" type="button">Enviar</button></div></div></div>
     </section>
   </main>
-  <footer class="footer"><div class="wrap">© 2026 Nexus Terra Core · Turing Public Interface</div></footer>
+  <footer class="footer"><div class="wrap">© 2026 NexoTerraCore · Turing Public Interface</div></footer>
 <script>
 const KB=[
-  {keys:['turing','quem e voce','agente'],answer:'Turing é o agente de inteligência artificial integrado ao Nexus Terra Core. Ele interpreta perguntas, utiliza conhecimento interno e, no ambiente autenticado, pode trabalhar com dados disponíveis no contexto autorizado.'},
-  {keys:['nexus terra core','nexusterracore','nexoterracore','nexo terra core','plataforma'],answer:'O Nexus Terra Core é uma plataforma de integração, organização e gestão de dados operacionais. Seu núcleo conecta APIs, dados, usuários, organizações e módulos em uma arquitetura centralizada.'},
-  {keys:['core','nucleo'],answer:'O Nexus Terra Core Core é o núcleo técnico da plataforma. Ele concentra API, autenticação, multitenancy, permissões, regras de negócio, acesso a dados e integração entre módulos.'},
-  {keys:['console','sala de comando'],answer:'O Nexus Terra Core Console é a Sala de Comando privada da plataforma. É onde usuários autenticados acessam módulos, dados, administração, API e o Turing com contexto autorizado.'},
-  {keys:['control plane','plano de controle'],answer:'Control Plane é a camada central de controle e organização do Nexus Terra Core, responsável por coordenar recursos, integrações, acessos e serviços.'},
+  {keys:['turing','quem e voce','agente'],answer:'Turing é o agente de inteligência artificial integrado ao NexoTerraCore. Ele interpreta perguntas, utiliza conhecimento interno e, no ambiente autenticado, pode trabalhar com dados disponíveis no contexto autorizado.'},
+  {keys:['nexus terra core','nexusterracore','nexoterracore','nexo terra core','plataforma'],answer:'O NexoTerraCore é uma plataforma de integração, organização e gestão de dados operacionais. Seu núcleo conecta APIs, dados, usuários, organizações e módulos em uma arquitetura centralizada.'},
+  {keys:['core','nucleo'],answer:'O NexoTerraCore Core é o núcleo técnico da plataforma. Ele concentra API, autenticação, multitenancy, permissões, regras de negócio, acesso a dados e integração entre módulos.'},
+  {keys:['console','sala de comando'],answer:'O NexoTerraCore Console é a Sala de Comando privada da plataforma. É onde usuários autenticados acessam módulos, dados, administração, API e o Turing com contexto autorizado.'},
+  {keys:['control plane','plano de controle'],answer:'Control Plane é a camada central de controle e organização do NexoTerraCore, responsável por coordenar recursos, integrações, acessos e serviços.'},
   {keys:['multitenancy','multitenant','tenant','multiempresa'],answer:'Multitenancy é a arquitetura que permite atender diferentes organizações no mesmo núcleo mantendo dados, sessões, permissões e contexto logicamente separados.'},
   {keys:['api','endpoint'],answer:'API é a camada que permite a troca estruturada de dados e serviços. Um endpoint é um endereço específico da API usado para consultar ou executar uma operação.'},
   {keys:['get'],answer:'GET é um método HTTP usado principalmente para consultar informações de uma API sem alterar o recurso consultado.'},
@@ -175,21 +175,21 @@ const KB=[
   {keys:['put'],answer:'PUT é um método HTTP usado normalmente para substituir ou atualizar um recurso de forma completa.'},
   {keys:['patch'],answer:'PATCH é um método HTTP usado normalmente para atualizar apenas parte de um recurso.'},
   {keys:['bearer','token de acesso','autenticacao'],answer:'Bearer token é usado para autenticação e autorização de acesso. Ele não é crédito de uso e não deve ser confundido com NTCoins.'},
-  {keys:['ntcoin','ntcoins','creditos'],answer:'NTCoins são créditos digitais internos de utilidade do Nexus Terra Core. No modelo atual, representam créditos de uso e não são criptomoeda pública, investimento ou ativo negociável.'},
-  {keys:['token'],answer:'No Nexus Terra Core, token pode significar Bearer token para autenticação, NTCoins como créditos internos de uso ou tokens de IA como unidades computacionais.'},
-  {keys:['pwa','celular','mobile','aplicativo','app'],answer:'Sim. O Nexus Terra Core possui uma versão PWA preparada para dispositivos móveis compatíveis e pode ser adicionada à tela inicial pelo navegador.'},
-  {keys:['modulos','módulos','patrimonio','imoveis','agro','financeiro','mapas'],answer:'Os módulos do Nexus Terra Core incluem Patrimônio, Imóveis, Clientes, Agro, Financeiro, Mapas, API / Control Plane, Turing e Administração.'},
-  {keys:['agrocore'],answer:'AgroCore é uma aplicação voltada ao contexto agrícola. O Nexus Terra Core é o núcleo de infraestrutura e integração que pode apoiar o AgroCore e outros sistemas.'},
-  {keys:['postgresql','banco'],answer:'PostgreSQL é o banco de dados relacional usado pelo Nexus Terra Core para armazenar e organizar dados estruturados da plataforma.'},
+  {keys:['ntcoin','ntcoins','creditos'],answer:'NTCoins são créditos digitais internos de utilidade do NexoTerraCore. No modelo atual, representam créditos de uso e não são criptomoeda pública, investimento ou ativo negociável.'},
+  {keys:['token'],answer:'No NexoTerraCore, token pode significar Bearer token para autenticação, NTCoins como créditos internos de uso ou tokens de IA como unidades computacionais.'},
+  {keys:['pwa','celular','mobile','aplicativo','app'],answer:'Sim. O NexoTerraCore possui uma versão PWA preparada para dispositivos móveis compatíveis e pode ser adicionada à tela inicial pelo navegador.'},
+  {keys:['modulos','módulos','patrimonio','imoveis','agro','financeiro','mapas'],answer:'Os módulos do NexoTerraCore incluem Patrimônio, Imóveis, Clientes, Agro, Financeiro, Mapas, API / Control Plane, Turing e Administração.'},
+  {keys:['agrocore'],answer:'AgroCore é uma aplicação voltada ao contexto agrícola. O NexoTerraCore é o núcleo de infraestrutura e integração que pode apoiar o AgroCore e outros sistemas.'},
+  {keys:['postgresql','banco'],answer:'PostgreSQL é o banco de dados relacional usado pelo NexoTerraCore para armazenar e organizar dados estruturados da plataforma.'},
   {keys:['rate limit','limite de requisicoes'],answer:'Rate limit limita a quantidade de requisições em determinado período para proteger a API contra excesso de uso ou abuso.'}
 ];
 function norm(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9\s_-]/g,' ').replace(/\s+/g,' ').trim()}
-function reply(q){const n=norm(q);if(!n)return null;let best=null,score=0;for(const item of KB){let s=0;for(const k of item.keys){const nk=norm(k);if(n.includes(nk))s+=nk.split(' ').length+1}if(s>score){score=s;best=item}}return score>0?best.answer:'No modo público, posso explicar o Nexus Terra Core, Turing, API, Console, multitenancy, PWA, NTCoins e conceitos técnicos. Para perguntas sobre dados privados ou operações da sua organização, entre no Console autenticado.'}
+function reply(q){const n=norm(q);if(!n)return null;let best=null,score=0;for(const item of KB){let s=0;for(const k of item.keys){const nk=norm(k);if(n.includes(nk))s+=nk.split(' ').length+1}if(s>score){score=s;best=item}}return score>0?best.answer:'No modo público, posso explicar o NexoTerraCore, Turing, API, Console, multitenancy, PWA, NTCoins e conceitos técnicos. Para perguntas sobre dados privados ou operações da sua organização, entre no Console autenticado.'}
 function add(type,text){const box=document.getElementById('messages');const d=document.createElement('div');d.className='msg '+type;const a=document.createElement('div');a.className='author';a.textContent=type==='user'?'VOCÊ':'TURING';const c=document.createElement('div');c.textContent=text;d.append(a,c);box.appendChild(d);box.scrollTop=box.scrollHeight}
 function send(){const i=document.getElementById('input');const q=i.value.trim();if(!q)return;add('user',q);i.value='';setTimeout(()=>add('turing',reply(q)),120)}
 document.getElementById('send').addEventListener('click',send);document.getElementById('input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('input').value=b.dataset.q;send()}));
-add('turing','Olá. Eu sou o Turing. Este é meu acesso público. Posso explicar o Nexus Terra Core e seus principais conceitos. Para dados privados e operações internas, o acesso continua protegido pelo Console.');
-fetch('https://nexoterracore-api.onrender.com/api/health').then(r=>r.ok?r.json():Promise.reject()).then(()=>document.getElementById('apiStatus').textContent='Núcleo Nexus Terra Core online').catch(()=>document.getElementById('apiStatus').textContent='Interface pública online');
+add('turing','Olá. Eu sou o Turing. Este é meu acesso público. Posso explicar o NexoTerraCore e seus principais conceitos. Para dados privados e operações internas, o acesso continua protegido pelo Console.');
+fetch('https://nexoterracore-api.onrender.com/api/health').then(r=>r.ok?r.json():Promise.reject()).then(()=>document.getElementById('apiStatus').textContent='Núcleo NexoTerraCore online').catch(()=>document.getElementById('apiStatus').textContent='Interface pública online');
 if('serviceWorker' in navigator){navigator.serviceWorker.register('../service-worker.js').catch(()=>{})}
 </script>
 
