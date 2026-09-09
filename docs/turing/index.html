@@ -186,7 +186,24 @@ const KB=[
 function norm(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9\s_-]/g,' ').replace(/\s+/g,' ').trim()}
 function reply(q){const n=norm(q);if(!n)return null;let best=null,score=0;for(const item of KB){let s=0;for(const k of item.keys){const nk=norm(k);if(n.includes(nk))s+=nk.split(' ').length+1}if(s>score){score=s;best=item}}return score>0?best.answer:'No modo público, posso explicar o NexoTerraCore, Turing, API, Console, multitenancy, PWA, NTCoins e conceitos técnicos. Para perguntas sobre dados privados ou operações da sua organização, entre no Console autenticado.'}
 function add(type,text){const box=document.getElementById('messages');const d=document.createElement('div');d.className='msg '+type;const a=document.createElement('div');a.className='author';a.textContent=type==='user'?'VOCÊ':'TURING';const c=document.createElement('div');c.textContent=text;d.append(a,c);box.appendChild(d);box.scrollTop=box.scrollHeight}
-function send(){const i=document.getElementById('input');const q=i.value.trim();if(!q)return;add('user',q);i.value='';setTimeout(()=>add('turing',reply(q)),120)}
+async function send(){
+const i=document.getElementById('input');
+const q=i.value.trim();
+if(!q)return;
+add('user',q);
+i.value='';
+try{
+const r=await fetch('https://nexoterracore-api.onrender.com/api/turing/publico',{
+method:'POST',
+headers:{'Content-Type':'application/json','Accept':'application/json'},
+body:JSON.stringify({pergunta:q})
+});
+const data=await r.json();
+add('turing',data.resposta||'Não recebi uma resposta.');
+}catch(e){
+add('turing','Turing está temporariamente indisponível.');
+}
+}
 document.getElementById('send').addEventListener('click',send);document.getElementById('input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('input').value=b.dataset.q;send()}));
 add('turing','Olá. Eu sou o Turing. Este é meu acesso público. Posso explicar o NexoTerraCore e seus principais conceitos. Para dados privados e operações internas, o acesso continua protegido pelo Console.');
 fetch('https://nexoterracore-api.onrender.com/api/health').then(r=>r.ok?r.json():Promise.reject()).then(()=>document.getElementById('apiStatus').textContent='Núcleo NexoTerraCore online').catch(()=>document.getElementById('apiStatus').textContent='Interface pública online');
