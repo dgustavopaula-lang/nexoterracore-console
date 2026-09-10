@@ -1,4 +1,4 @@
-const CACHE = "nexoterracore-mobile-v13";
+const CACHE = "nexoterracore-mobile-v14";
 
 const APP_SHELL = [
   "./",

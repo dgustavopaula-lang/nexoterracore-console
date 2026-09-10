@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexoTerraCore — Sala de Comando</title>
-  <link rel="stylesheet" href="../css/style.css?v=20260910-02">
+  <link rel="stylesheet" href="../css/style.css?v=20260910-03">
 
 <link rel="manifest" href="../manifest.json">
 <meta name="theme-color" content="#071419">
@@ -34,7 +34,7 @@
         <button class="menu-item" data-view="imoveis">Imóveis</button>
         <button class="menu-item" data-view="clientes">Clientes</button>
         <button class="menu-item" data-view="projetos">Projetos / Registro diário</button>
-        <button class="menu-item" data-view="projeto-turing">IA — Projeto Turing</button>
+        <button class="menu-item" data-view="projeto-turing">IA — Mercado Digital / Tokens</button>
         <button class="menu-item" data-view="financeiro">Financeiro</button>
         <button class="menu-item" data-view="mapas">Mapas</button>
         <button class="menu-item" data-view="api">API / Control Plane</button>
@@ -282,20 +282,27 @@
       </section>
 
       
+      
       <section id="view-projeto-turing" class="content view">
 
         <div class="section-header">
           <div>
-            <span class="eyebrow">INTELIGÊNCIA ARTIFICIAL · P&D · MERCADO</span>
-            <h2>IA — Projeto Turing</h2>
+            <span class="eyebrow">IA · PROJETO TURING</span>
+            <h2>Inteligência de Mercado</h2>
             <p>
-              Centro de desenvolvimento, inteligência de mercado,
-              pesquisa, dados e evolução do Turing.
+              Mercado Digital / Tokens · rastreabilidade,
+              dados públicos, pesquisa e evolução do NTCoins.
             </p>
           </div>
 
           <div class="section-actions">
-            <button id="btnTuringMercadoAtualizar"
+            <button id="btnNovoToken"
+                    class="btn-secondary"
+                    type="button">
+              Cadastrar token
+            </button>
+
+            <button id="btnMercadoAtualizar"
                     class="btn-primary"
                     type="button">
               Atualizar mercado
@@ -303,206 +310,322 @@
           </div>
         </div>
 
-        <div class="turing-project-hero">
-          <div>
-            <span class="eyebrow">NÚCLEO INTELIGENTE</span>
-            <h3>Turing Intelligence Center</h3>
-            <p>
-              Mercado, API, Python Analytics, documentos,
-              pesquisa e evolução operacional em uma única área.
-            </p>
-          </div>
 
-          <div class="turing-project-orb-wrap">
-            <div class="turing-project-orb">T</div>
-            <div>
-              <span>Estado do projeto</span>
-              <strong id="turingProjetoEstado">Carregando registro...</strong>
-              <small id="turingProjetoProxima">—</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="overview-grid turing-project-kpis">
+        <div class="overview-grid market-top-cards">
 
           <article class="info-card">
-            <span>Mercado</span>
-            <strong id="turingMercadoStatus">Conectando...</strong>
+            <span>Ativos rastreados</span>
+            <strong id="marketTotalAtivos">0</strong>
           </article>
 
           <article class="info-card">
-            <span>Fonte</span>
-            <strong>Mercado Spot público</strong>
+            <span>Fonte ao vivo</span>
+            <strong id="marketFonteStatus">Conectando...</strong>
+          </article>
+
+          <article class="info-card">
+            <span>NTCoins</span>
+            <strong>Utilidade interna</strong>
           </article>
 
           <article class="info-card">
             <span>Última atualização</span>
-            <strong id="turingMercadoAtualizado">—</strong>
-          </article>
-
-          <article class="info-card">
-            <span>Execução</span>
-            <strong>Somente análise</strong>
+            <strong id="marketUltimaAtualizacao">—</strong>
           </article>
 
         </div>
 
 
-        <div class="turing-market-assets" id="turingMarketAssets">
+        <div class="market-intelligence-layout">
 
-          <button class="turing-market-asset ativo"
-                  type="button"
-                  data-market-asset="BTC">
-            <span>BTC</span>
-            <strong id="marketPriceBTC">—</strong>
-            <small id="marketChangeBTC">—</small>
-          </button>
+          <aside class="market-tracker">
 
-          <button class="turing-market-asset"
-                  type="button"
-                  data-market-asset="ETH">
-            <span>ETH</span>
-            <strong id="marketPriceETH">—</strong>
-            <small id="marketChangeETH">—</small>
-          </button>
-
-          <button class="turing-market-asset"
-                  type="button"
-                  data-market-asset="BNB">
-            <span>BNB</span>
-            <strong id="marketPriceBNB">—</strong>
-            <small id="marketChangeBNB">—</small>
-          </button>
-
-          <button class="turing-market-asset"
-                  type="button"
-                  data-market-asset="USDC">
-            <span>USDC / USDT</span>
-            <strong id="marketPriceUSDC">—</strong>
-            <small id="marketChangeUSDC">—</small>
-          </button>
-
-        </div>
-
-
-        <article class="turing-market-terminal">
-
-          <div class="turing-market-terminal-head">
-
-            <div>
-              <span class="eyebrow">MERCADO AO VIVO</span>
-
-              <div class="turing-market-title-row">
-                <h3 id="marketChartTitle">Bitcoin · BTC/USDT</h3>
-                <strong id="marketChartPrice">—</strong>
-                <span id="marketChartVariation">—</span>
+            <div class="market-panel-head">
+              <div>
+                <span class="eyebrow">RASTREABILIDADE</span>
+                <h3>Tokens monitorados</h3>
               </div>
             </div>
 
-            <div class="turing-market-periods">
-              <button type="button"
-                      class="ativo"
-                      data-market-period="24h">
-                24h
-              </button>
+            <div id="marketTokenList"
+                 class="market-token-list"></div>
 
-              <button type="button"
-                      data-market-period="7d">
-                7d
-              </button>
+          </aside>
 
-              <button type="button"
-                      data-market-period="30d">
-                30d
-              </button>
+
+          <article class="market-main-chart">
+
+            <div class="market-main-head">
+
+              <div>
+                <span class="eyebrow">ATIVO SELECIONADO</span>
+
+                <div class="market-selected-title">
+                  <h3 id="marketChartTitle">
+                    Selecione um ativo
+                  </h3>
+
+                  <strong id="marketChartPrice">—</strong>
+
+                  <span id="marketChartChange">—</span>
+                </div>
+              </div>
+
+              <div class="market-periods">
+                <button class="ativo"
+                        data-market-period="24h"
+                        type="button">24h</button>
+
+                <button data-market-period="7d"
+                        type="button">7d</button>
+
+                <button data-market-period="30d"
+                        type="button">30d</button>
+              </div>
+
             </div>
 
-          </div>
+            <div class="market-chart-area">
+              <canvas id="marketCanvas"></canvas>
 
-          <div class="turing-market-chart-wrap">
-            <canvas id="turingMarketCanvas"></canvas>
-
-            <div id="turingMarketChartMessage"
-                 class="turing-market-chart-message">
-              Carregando série de mercado...
-            </div>
-          </div>
-
-          <div class="turing-market-stats">
-
-            <div>
-              <span>Máxima 24h</span>
-              <strong id="marketHigh">—</strong>
+              <div id="marketChartMessage"
+                   class="market-chart-message">
+                Carregando mercado...
+              </div>
             </div>
 
-            <div>
-              <span>Mínima 24h</span>
-              <strong id="marketLow">—</strong>
+            <div class="market-chart-stats">
+
+              <div>
+                <span>Máxima 24h</span>
+                <strong id="marketHigh">—</strong>
+              </div>
+
+              <div>
+                <span>Mínima 24h</span>
+                <strong id="marketLow">—</strong>
+              </div>
+
+              <div>
+                <span>Volume 24h</span>
+                <strong id="marketVolume">—</strong>
+              </div>
+
+              <div>
+                <span>Par / referência</span>
+                <strong id="marketPair">—</strong>
+              </div>
+
             </div>
 
-            <div>
-              <span>Volume 24h</span>
-              <strong id="marketVolume">—</strong>
-            </div>
-
-            <div>
-              <span>Par analisado</span>
-              <strong id="marketPair">BTCUSDT</strong>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <div class="operational-grid turing-project-labs">
-
-          <article class="operation-panel">
-            <span class="eyebrow">STABLECOINS</span>
-            <h3>Monitor de estabilidade</h3>
-            <p>
-              USDC / USDT incluído no painel para observar
-              comportamento e variação da paridade.
-            </p>
-            <strong id="turingStableStatus">Dados públicos de mercado</strong>
-          </article>
-
-          <article class="operation-panel">
-            <span class="eyebrow">NOVOS ATIVOS</span>
-            <h3>Listagens / observação</h3>
-            <p>
-              Área reservada para registro e estudo de novos ativos,
-              redes e projetos.
-            </p>
-            <strong>Fonte específica será conectada separadamente</strong>
-          </article>
-
-          <article class="operation-panel">
-            <span class="eyebrow">PYTHON</span>
-            <h3>Python Analytics</h3>
-            <p>
-              Camada preparada para volatilidade, correlação,
-              séries históricas e relatórios quantitativos.
-            </p>
-            <strong>Integração backend planejada</strong>
-          </article>
-
-          <article class="operation-panel">
-            <span class="eyebrow">P&D / DOCUMENTOS</span>
-            <h3>Pesquisa e financiamento</h3>
-            <p>
-              Documentos técnicos, editais, projetos de pesquisa,
-              bolsas e financiamento institucional.
-            </p>
-            <strong>Central documental do Projeto Turing</strong>
           </article>
 
         </div>
 
 
-        <div class="notice turing-market-disclaimer">
-          Mercado apresentado para pesquisa, aprendizado e análise.
-          O módulo não executa compra, venda, custódia ou ordens financeiras.
+        <div class="market-secondary-grid">
+
+          <article class="ntcoins-project-card">
+
+            <div class="market-panel-head">
+              <div>
+                <span class="eyebrow">ECONOMIA INTERNA</span>
+                <h3>NTCoins</h3>
+              </div>
+
+              <button id="btnEditarNTCoins"
+                      class="btn-secondary"
+                      type="button">
+                Editar projeto
+              </button>
+            </div>
+
+            <div class="ntcoins-project-identity">
+              <div class="ntcoins-mark">NTC</div>
+
+              <div>
+                <strong>NTCoins</strong>
+                <span>
+                  Créditos digitais internos do ecossistema NexoTerraCore
+                </span>
+              </div>
+            </div>
+
+            <div class="ntcoins-project-data">
+
+              <div>
+                <span>Status</span>
+                <strong id="ntcoinsStatus">—</strong>
+              </div>
+
+              <div>
+                <span>Próxima etapa</span>
+                <strong id="ntcoinsProxima">—</strong>
+              </div>
+
+              <div>
+                <span>Observação</span>
+                <strong id="ntcoinsObservacao">—</strong>
+              </div>
+
+            </div>
+
+            <div class="notice">
+              O NTCoins aparece aqui como projeto interno.
+              Nenhuma cotação pública será inventada.
+            </div>
+
+          </article>
+
+
+          <article class="market-trace-card">
+
+            <span class="eyebrow">NOVOS TOKENS</span>
+            <h3>Rastreabilidade de origem</h3>
+
+            <p>
+              Estrutura preparada para registrar rede,
+              contrato, fonte, categoria, data e observações.
+            </p>
+
+            <div class="market-trace-fields">
+              <span>Rede</span>
+              <span>Contrato</span>
+              <span>Fonte</span>
+              <span>Par</span>
+              <span>Histórico</span>
+              <span>Status</span>
+            </div>
+
+            <strong>
+              Conexão automatizada de novas listagens será
+              validada em etapa separada.
+            </strong>
+
+          </article>
+
+        </div>
+
+
+        <div class="notice market-security-note">
+          Ambiente de pesquisa e inteligência de mercado.
+          Não executa compra, venda, custódia ou ordens financeiras.
+          Não registre chaves privadas, seed phrases, senhas ou API keys.
+        </div>
+
+
+        <div id="modalMarketToken"
+             class="modal oculto">
+
+          <div class="modal-card modal-card-wide">
+
+            <div class="modal-header">
+              <div>
+                <span class="eyebrow">RASTREABILIDADE</span>
+                <h2 id="marketModalTitulo">
+                  Cadastrar token
+                </h2>
+              </div>
+
+              <button id="marketModalFechar"
+                      class="btn-icon"
+                      type="button">×</button>
+            </div>
+
+            <div class="notice">
+              Cadastre apenas informações públicas.
+              Nunca coloque senha, token secreto,
+              chave privada ou frase de recuperação.
+            </div>
+
+            <form id="marketTokenForm"
+                  class="form-grid">
+
+              <input type="hidden"
+                     id="marketTokenId">
+
+              <input type="hidden"
+                     id="marketTokenModo"
+                     value="token">
+
+              <label>
+                Nome
+                <input id="marketTokenNome"
+                       required
+                       maxlength="80"
+                       placeholder="Ex.: Solana">
+              </label>
+
+              <label>
+                Símbolo
+                <input id="marketTokenSymbol"
+                       required
+                       maxlength="20"
+                       placeholder="Ex.: SOL">
+              </label>
+
+              <label>
+                Categoria
+                <select id="marketTokenCategoria">
+                  <option>Criptoativo</option>
+                  <option>Token</option>
+                  <option>Stablecoin</option>
+                  <option>RWA</option>
+                  <option>Projeto interno</option>
+                  <option>Pesquisa</option>
+                </select>
+              </label>
+
+              <label>
+                Par público opcional
+                <input id="marketTokenPair"
+                       maxlength="30"
+                       placeholder="Ex.: SOLUSDT">
+              </label>
+
+              <label>
+                Rede
+                <input id="marketTokenRede"
+                       maxlength="80"
+                       placeholder="Ex.: Solana">
+              </label>
+
+              <label>
+                Contrato / identificador público
+                <input id="marketTokenContrato"
+                       maxlength="180">
+              </label>
+
+              <label class="form-span-2">
+                Fonte / referência
+                <input id="marketTokenFonte"
+                       maxlength="250"
+                       placeholder="Fonte pública utilizada">
+              </label>
+
+              <label class="form-span-2">
+                Próxima etapa
+                <input id="marketTokenProxima"
+                       maxlength="220">
+              </label>
+
+              <label class="form-span-2">
+                Observação
+                <textarea id="marketTokenObservacao"
+                          rows="4"
+                          maxlength="600"></textarea>
+              </label>
+
+            </form>
+
+            <button id="marketTokenSalvar"
+                    class="btn-primary btn-full"
+                    type="button">
+              Salvar registro
+            </button>
+
+          </div>
+
         </div>
 
       </section>
@@ -1370,7 +1493,7 @@
 
   <script src="../js/app.js"></script>
 <script src="../js/projetos.js?v=20260910-02"></script>
-<script src="../js/projeto-turing.js?v=20260910-01"></script>
+<script src="../js/projeto-turing.js?v=20260910-02"></script>
 <script src="../js/contas-seguranca.js?v=20260910-01"></script>
 <script src="../js/financeiro.js"></script>
   <script src="../js/clientes.js"></script>

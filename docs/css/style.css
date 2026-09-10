@@ -2523,3 +2523,378 @@ body {
     min-height: 350px;
   }
 }
+
+
+/* =========================================================
+   MERCADO DIGITAL / TOKENS · TURING
+   ========================================================= */
+
+.market-top-cards {
+  margin-bottom: 18px;
+}
+
+.market-intelligence-layout {
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.market-tracker,
+.market-main-chart,
+.ntcoins-project-card,
+.market-trace-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.market-tracker {
+  padding: 18px;
+}
+
+.market-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.market-panel-head h3 {
+  margin: 6px 0 0;
+}
+
+.market-token-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.market-token-row {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 11px;
+  align-items: center;
+  min-height: 68px;
+  padding: 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 9px;
+  background: var(--panel-2);
+  cursor: pointer;
+}
+
+.market-token-row:hover {
+  border-color: var(--accent-border);
+}
+
+.market-token-row.ativo {
+  border-color: var(--accent-border);
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent-soft),
+      var(--panel-2)
+    );
+}
+
+.market-token-symbol {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.market-token-info strong,
+.market-token-info span,
+.market-token-live strong,
+.market-token-live span {
+  display: block;
+}
+
+.market-token-info span,
+.market-token-live span {
+  margin-top: 4px;
+  color: var(--muted-2);
+  font-size: 10px;
+}
+
+.market-token-live {
+  text-align: right;
+}
+
+.market-token-live strong {
+  font-size: 12px;
+}
+
+.market-token-edit {
+  grid-column: 2 / 4;
+  justify-self: end;
+  padding: 4px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.market-main-chart {
+  overflow: hidden;
+}
+
+.market-main-head {
+  min-height: 94px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.market-selected-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 13px;
+  margin-top: 6px;
+}
+
+.market-selected-title h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.market-selected-title strong {
+  font-size: 24px;
+}
+
+.market-selected-title span {
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.market-periods {
+  display: flex;
+  gap: 5px;
+}
+
+.market-periods button {
+  min-width: 48px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--panel-2);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.market-periods button.ativo {
+  border-color: var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.market-chart-area {
+  position: relative;
+  min-height: 390px;
+}
+
+#marketCanvas {
+  display: block;
+  width: 100%;
+  min-height: 390px;
+}
+
+.market-chart-message {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+  background: rgba(5, 11, 14, .52);
+  color: var(--muted);
+}
+
+.market-chart-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--border-soft);
+}
+
+.market-chart-stats > div {
+  padding: 16px 18px;
+  border-right: 1px solid var(--border-soft);
+}
+
+.market-chart-stats > div:last-child {
+  border-right: 0;
+}
+
+.market-chart-stats span,
+.ntcoins-project-data span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted-2);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+
+.market-chart-stats strong {
+  font-size: 13px;
+}
+
+.market-secondary-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.ntcoins-project-card,
+.market-trace-card {
+  padding: 22px;
+}
+
+.ntcoins-project-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0 22px;
+}
+
+.ntcoins-mark {
+  width: 68px;
+  height: 68px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent-border);
+  border-radius: 18px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 850;
+}
+
+.ntcoins-project-identity strong,
+.ntcoins-project-identity span {
+  display: block;
+}
+
+.ntcoins-project-identity strong {
+  font-size: 22px;
+}
+
+.ntcoins-project-identity span {
+  margin-top: 5px;
+  color: var(--muted);
+}
+
+.ntcoins-project-data {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr 1.5fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.ntcoins-project-data > div {
+  min-height: 94px;
+  padding: 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: 9px;
+  background: var(--panel-2);
+}
+
+.ntcoins-project-data strong {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.market-trace-card p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.market-trace-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 18px 0;
+}
+
+.market-trace-fields span {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.market-trace-card > strong {
+  display: block;
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.market-security-note {
+  margin-top: 18px;
+}
+
+
+@media (max-width: 1050px) {
+  .market-intelligence-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .market-token-list {
+    display: grid;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .market-secondary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 720px) {
+  .market-token-list {
+    grid-template-columns: 1fr;
+  }
+
+  .market-main-head {
+    flex-direction: column;
+  }
+
+  .market-periods {
+    width: 100%;
+  }
+
+  .market-periods button {
+    flex: 1;
+  }
+
+  .market-chart-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .ntcoins-project-data {
+    grid-template-columns: 1fr;
+  }
+
+  .market-chart-area,
+  #marketCanvas {
+    min-height: 340px;
+  }
+}
