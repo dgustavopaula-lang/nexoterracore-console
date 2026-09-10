@@ -38,6 +38,7 @@
         <button class="menu-item" data-view="mapas">Mapas</button>
         <button class="menu-item" data-view="api">API / Control Plane</button>
         <button class="menu-item" data-view="turing">Turing</button>
+        <button class="menu-item" data-view="contas-seguranca">Contas / Segurança</button>
         <button class="menu-item" data-view="administracao">Administração</button>
       </nav>
 
@@ -572,6 +573,62 @@
         </div>
       </section>
 
+      <section id="view-contas-seguranca" class="content view">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">SEGURANÇA PESSOAL</span>
+            <h2>Contas / Segurança</h2>
+            <p>Inventário de contas e trocas de senha. Nenhuma senha ou segredo é armazenado neste Console.</p>
+          </div>
+
+          <div class="section-actions">
+            <button id="btnNovaContaSeg" class="btn-primary" type="button">
+              Nova conta
+            </button>
+            <button id="btnExportarContasSeg" class="btn-secondary" type="button">
+              Exportar cadastro
+            </button>
+            <button id="btnImportarContasSeg" class="btn-secondary" type="button">
+              Importar cadastro
+            </button>
+            <button id="btnAbrirBitwarden" class="btn-secondary" type="button">
+              Abrir Bitwarden
+            </button>
+          </div>
+        </div>
+
+        <div class="notice">
+          REGRA DE SEGURANÇA: registre somente identificação e histórico.
+          Não coloque senha, token, API key, código 2FA ou código de recuperação.
+        </div>
+
+        <div class="overview-grid">
+          <article class="info-card">
+            <span>Contas cadastradas</span>
+            <strong id="segTotalContas">0</strong>
+          </article>
+
+          <article class="info-card">
+            <span>Entrar com Google</span>
+            <strong id="segGoogle">0</strong>
+          </article>
+
+          <article class="info-card">
+            <span>Precisam revisão</span>
+            <strong id="segRevisar">0</strong>
+          </article>
+        </div>
+
+        <div id="segContasLista" class="operational-grid"></div>
+
+        <input
+          id="segImportFile"
+          type="file"
+          accept=".json,application/json"
+          class="oculto"
+        >
+      </section>
+
       <section id="view-administracao" class="content view">
 
         <div class="section-header">
@@ -1086,6 +1143,7 @@
 
   <script src="../js/app.js"></script>
 <script src="../js/projetos.js?v=20260910-02"></script>
+<script src="../js/contas-seguranca.js?v=20260910-01"></script>
 <script src="../js/financeiro.js"></script>
   <script src="../js/clientes.js"></script>
   <script src="../js/mapas.js"></script>
