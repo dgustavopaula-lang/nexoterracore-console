@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexoTerraCore — Sala de Comando</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=20260910-02">
 
 <link rel="manifest" href="../manifest.json">
 <meta name="theme-color" content="#071419">
@@ -34,6 +34,7 @@
         <button class="menu-item" data-view="imoveis">Imóveis</button>
         <button class="menu-item" data-view="clientes">Clientes</button>
         <button class="menu-item" data-view="projetos">Projetos / Registro diário</button>
+        <button class="menu-item" data-view="projeto-turing">IA — Projeto Turing</button>
         <button class="menu-item" data-view="financeiro">Financeiro</button>
         <button class="menu-item" data-view="mapas">Mapas</button>
         <button class="menu-item" data-view="api">API / Control Plane</button>
@@ -280,7 +281,233 @@
         </div>
       </section>
 
-      <section id="view-financeiro" class="content view">
+      
+      <section id="view-projeto-turing" class="content view">
+
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">INTELIGÊNCIA ARTIFICIAL · P&D · MERCADO</span>
+            <h2>IA — Projeto Turing</h2>
+            <p>
+              Centro de desenvolvimento, inteligência de mercado,
+              pesquisa, dados e evolução do Turing.
+            </p>
+          </div>
+
+          <div class="section-actions">
+            <button id="btnTuringMercadoAtualizar"
+                    class="btn-primary"
+                    type="button">
+              Atualizar mercado
+            </button>
+          </div>
+        </div>
+
+        <div class="turing-project-hero">
+          <div>
+            <span class="eyebrow">NÚCLEO INTELIGENTE</span>
+            <h3>Turing Intelligence Center</h3>
+            <p>
+              Mercado, API, Python Analytics, documentos,
+              pesquisa e evolução operacional em uma única área.
+            </p>
+          </div>
+
+          <div class="turing-project-orb-wrap">
+            <div class="turing-project-orb">T</div>
+            <div>
+              <span>Estado do projeto</span>
+              <strong id="turingProjetoEstado">Carregando registro...</strong>
+              <small id="turingProjetoProxima">—</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="overview-grid turing-project-kpis">
+
+          <article class="info-card">
+            <span>Mercado</span>
+            <strong id="turingMercadoStatus">Conectando...</strong>
+          </article>
+
+          <article class="info-card">
+            <span>Fonte</span>
+            <strong>Mercado Spot público</strong>
+          </article>
+
+          <article class="info-card">
+            <span>Última atualização</span>
+            <strong id="turingMercadoAtualizado">—</strong>
+          </article>
+
+          <article class="info-card">
+            <span>Execução</span>
+            <strong>Somente análise</strong>
+          </article>
+
+        </div>
+
+
+        <div class="turing-market-assets" id="turingMarketAssets">
+
+          <button class="turing-market-asset ativo"
+                  type="button"
+                  data-market-asset="BTC">
+            <span>BTC</span>
+            <strong id="marketPriceBTC">—</strong>
+            <small id="marketChangeBTC">—</small>
+          </button>
+
+          <button class="turing-market-asset"
+                  type="button"
+                  data-market-asset="ETH">
+            <span>ETH</span>
+            <strong id="marketPriceETH">—</strong>
+            <small id="marketChangeETH">—</small>
+          </button>
+
+          <button class="turing-market-asset"
+                  type="button"
+                  data-market-asset="BNB">
+            <span>BNB</span>
+            <strong id="marketPriceBNB">—</strong>
+            <small id="marketChangeBNB">—</small>
+          </button>
+
+          <button class="turing-market-asset"
+                  type="button"
+                  data-market-asset="USDC">
+            <span>USDC / USDT</span>
+            <strong id="marketPriceUSDC">—</strong>
+            <small id="marketChangeUSDC">—</small>
+          </button>
+
+        </div>
+
+
+        <article class="turing-market-terminal">
+
+          <div class="turing-market-terminal-head">
+
+            <div>
+              <span class="eyebrow">MERCADO AO VIVO</span>
+
+              <div class="turing-market-title-row">
+                <h3 id="marketChartTitle">Bitcoin · BTC/USDT</h3>
+                <strong id="marketChartPrice">—</strong>
+                <span id="marketChartVariation">—</span>
+              </div>
+            </div>
+
+            <div class="turing-market-periods">
+              <button type="button"
+                      class="ativo"
+                      data-market-period="24h">
+                24h
+              </button>
+
+              <button type="button"
+                      data-market-period="7d">
+                7d
+              </button>
+
+              <button type="button"
+                      data-market-period="30d">
+                30d
+              </button>
+            </div>
+
+          </div>
+
+          <div class="turing-market-chart-wrap">
+            <canvas id="turingMarketCanvas"></canvas>
+
+            <div id="turingMarketChartMessage"
+                 class="turing-market-chart-message">
+              Carregando série de mercado...
+            </div>
+          </div>
+
+          <div class="turing-market-stats">
+
+            <div>
+              <span>Máxima 24h</span>
+              <strong id="marketHigh">—</strong>
+            </div>
+
+            <div>
+              <span>Mínima 24h</span>
+              <strong id="marketLow">—</strong>
+            </div>
+
+            <div>
+              <span>Volume 24h</span>
+              <strong id="marketVolume">—</strong>
+            </div>
+
+            <div>
+              <span>Par analisado</span>
+              <strong id="marketPair">BTCUSDT</strong>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <div class="operational-grid turing-project-labs">
+
+          <article class="operation-panel">
+            <span class="eyebrow">STABLECOINS</span>
+            <h3>Monitor de estabilidade</h3>
+            <p>
+              USDC / USDT incluído no painel para observar
+              comportamento e variação da paridade.
+            </p>
+            <strong id="turingStableStatus">Dados públicos de mercado</strong>
+          </article>
+
+          <article class="operation-panel">
+            <span class="eyebrow">NOVOS ATIVOS</span>
+            <h3>Listagens / observação</h3>
+            <p>
+              Área reservada para registro e estudo de novos ativos,
+              redes e projetos.
+            </p>
+            <strong>Fonte específica será conectada separadamente</strong>
+          </article>
+
+          <article class="operation-panel">
+            <span class="eyebrow">PYTHON</span>
+            <h3>Python Analytics</h3>
+            <p>
+              Camada preparada para volatilidade, correlação,
+              séries históricas e relatórios quantitativos.
+            </p>
+            <strong>Integração backend planejada</strong>
+          </article>
+
+          <article class="operation-panel">
+            <span class="eyebrow">P&D / DOCUMENTOS</span>
+            <h3>Pesquisa e financiamento</h3>
+            <p>
+              Documentos técnicos, editais, projetos de pesquisa,
+              bolsas e financiamento institucional.
+            </p>
+            <strong>Central documental do Projeto Turing</strong>
+          </article>
+
+        </div>
+
+
+        <div class="notice turing-market-disclaimer">
+          Mercado apresentado para pesquisa, aprendizado e análise.
+          O módulo não executa compra, venda, custódia ou ordens financeiras.
+        </div>
+
+      </section>
+
+<section id="view-financeiro" class="content view">
         <div class="section-header">
           <div>
             <h2>Financeiro / Contabilidade</h2>
@@ -1143,6 +1370,7 @@
 
   <script src="../js/app.js"></script>
 <script src="../js/projetos.js?v=20260910-02"></script>
+<script src="../js/projeto-turing.js?v=20260910-01"></script>
 <script src="../js/contas-seguranca.js?v=20260910-01"></script>
 <script src="../js/financeiro.js"></script>
   <script src="../js/clientes.js"></script>

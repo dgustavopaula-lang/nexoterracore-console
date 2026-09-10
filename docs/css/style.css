@@ -2210,3 +2210,316 @@ body {
 }
 
 /* === TURING MOBILE UX V2 END === */
+
+
+/* =========================================================
+   IA PROJETO TURING - MARKET INTELLIGENCE
+   ========================================================= */
+
+.turing-project-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 8px 0 22px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 85% 20%, var(--accent-soft), transparent 36%),
+    linear-gradient(135deg, var(--panel-2), var(--panel));
+}
+
+.turing-project-hero h3 {
+  margin: 8px 0 8px;
+  font-size: clamp(24px, 4vw, 38px);
+  letter-spacing: -1px;
+}
+
+.turing-project-hero p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.turing-project-orb-wrap {
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.turing-project-orb {
+  width: 76px;
+  height: 76px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent-border);
+  border-radius: 22px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.turing-project-orb-wrap span,
+.turing-project-orb-wrap small {
+  display: block;
+  color: var(--muted-2);
+}
+
+.turing-project-orb-wrap strong {
+  display: block;
+  margin: 5px 0;
+  color: var(--text);
+}
+
+.turing-project-kpis {
+  margin-bottom: 20px;
+}
+
+.turing-market-assets {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.turing-market-asset {
+  min-height: 104px;
+  padding: 16px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.turing-market-asset:hover {
+  border-color: var(--accent-border);
+  background: var(--panel-2);
+}
+
+.turing-market-asset.ativo {
+  border-color: var(--accent-border);
+  background:
+    linear-gradient(135deg, var(--accent-soft), var(--panel));
+}
+
+.turing-market-asset span {
+  display: block;
+  color: var(--muted-2);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.turing-market-asset strong {
+  display: block;
+  margin: 10px 0 7px;
+  font-size: 18px;
+}
+
+.turing-market-asset small {
+  font-weight: 700;
+}
+
+.market-positive {
+  color: var(--accent) !important;
+}
+
+.market-negative {
+  color: var(--danger) !important;
+}
+
+.turing-market-terminal {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.turing-market-terminal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.turing-market-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 7px;
+}
+
+.turing-market-title-row h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.turing-market-title-row strong {
+  font-size: 25px;
+}
+
+.turing-market-title-row span {
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.turing-market-periods {
+  display: flex;
+  gap: 6px;
+}
+
+.turing-market-periods button {
+  min-width: 52px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.turing-market-periods button.ativo {
+  border-color: var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.turing-market-chart-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 460px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.012), transparent);
+}
+
+#turingMarketCanvas {
+  display: block;
+  width: 100%;
+  min-height: 460px;
+}
+
+.turing-market-chart-message {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  background: rgba(5,11,14,.40);
+  pointer-events: none;
+}
+
+.turing-market-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--border-soft);
+}
+
+.turing-market-stats > div {
+  padding: 18px 20px;
+  border-right: 1px solid var(--border-soft);
+}
+
+.turing-market-stats > div:last-child {
+  border-right: 0;
+}
+
+.turing-market-stats span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted-2);
+  font-size: 11px;
+}
+
+.turing-market-stats strong {
+  font-size: 14px;
+}
+
+.turing-project-labs {
+  margin-top: 20px;
+}
+
+.turing-project-labs .operation-panel {
+  min-height: 190px;
+}
+
+.turing-project-labs .operation-panel h3 {
+  margin-top: 8px;
+}
+
+.turing-project-labs .operation-panel p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.turing-market-disclaimer {
+  margin-top: 20px;
+}
+
+
+@media (max-width: 1000px) {
+  .turing-market-assets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .turing-project-hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .turing-project-orb-wrap {
+    min-width: 0;
+  }
+}
+
+
+@media (max-width: 720px) {
+  .turing-market-terminal-head {
+    flex-direction: column;
+  }
+
+  .turing-market-periods {
+    width: 100%;
+  }
+
+  .turing-market-periods button {
+    flex: 1;
+  }
+
+  .turing-market-chart-wrap,
+  #turingMarketCanvas {
+    min-height: 390px;
+  }
+
+  .turing-market-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .turing-market-stats > div {
+    border-bottom: 1px solid var(--border-soft);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .turing-market-assets {
+    grid-template-columns: 1fr;
+  }
+
+  .turing-project-hero {
+    padding: 20px;
+  }
+
+  .turing-market-chart-wrap,
+  #turingMarketCanvas {
+    min-height: 350px;
+  }
+}
