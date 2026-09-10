@@ -178,16 +178,32 @@
   }
 
   function exportar() {
+    const conteudo = JSON.stringify(ler(), null, 2);
+
+    if (!conteudo || conteudo.length < 10) {
+      alert("Não foi possível gerar o backup.");
+      return;
+    }
+
     const blob = new Blob(
-      [JSON.stringify(ler(),null,2)],
-      {type:"application/json"}
+      [conteudo],
+      { type: "application/json;charset=utf-8" }
     );
 
+    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
+
+    a.href = url;
     a.download = `nexoterracore-projetos-${dataHoje()}.json`;
+    a.style.display = "none";
+
+    document.body.appendChild(a);
     a.click();
-    URL.revokeObjectURL(a.href);
+
+    setTimeout(() => {
+      URL.revokeObjectURL(url);
+      a.remove();
+    }, 3000);
   }
 
   function render() {
