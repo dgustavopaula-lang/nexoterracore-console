@@ -6,14 +6,42 @@
     {id:"turing",nome:"Turing",status:"Em desenvolvimento",prioridade:"Alta",evolucao:65,proxima:"Ampliar inteligência e perguntas"},
     {id:"agro-digital-pro",nome:"Agro Digital Pro",status:"Em desenvolvimento",prioridade:"Alta",evolucao:55,proxima:"Rastreabilidade animal"},
     {id:"sistema-raiz",nome:"Sistema Raiz",status:"Em desenvolvimento",prioridade:"Normal",evolucao:45,proxima:"Consolidar verticais"},
-    {id:"campanha",nome:"Projeto Campanha / Loteamento",status:"Planejamento",prioridade:"Alta",evolucao:20,proxima:"Documentação e estrutura"},
+    {id:"campanha",nome:"Projeto Loteamento Campanha",status:"Planejamento",prioridade:"Máxima",evolucao:20,proxima:"Estruturar proposta e encaminhamento técnico"},
     {id:"clinica",nome:"Clínica",status:"Em desenvolvimento",prioridade:"Normal",evolucao:40,proxima:"Entrega e publicação"}
   ];
 
   const ler = () => {
     try {
       const x = JSON.parse(localStorage.getItem(STORAGE));
-      if (x && Array.isArray(x.projetos)) return x;
+      if (x && Array.isArray(x.projetos)) {
+        const campanha = x.projetos.find(p => p.id === "campanha");
+
+        if (campanha) {
+          let alterou = false;
+
+          if (campanha.nome === "Projeto Campanha / Loteamento") {
+            campanha.nome = "Projeto Loteamento Campanha";
+            alterou = true;
+          }
+
+          if (campanha.prioridade !== "Máxima") {
+            campanha.prioridade = "Máxima";
+            alterou = true;
+          }
+
+          if (campanha.proxima === "Documentação e estrutura") {
+            campanha.proxima =
+              "Estruturar proposta e encaminhamento técnico";
+            alterou = true;
+          }
+
+          if (alterou) {
+            localStorage.setItem(STORAGE, JSON.stringify(x));
+          }
+        }
+
+        return x;
+      }
     } catch (_) {}
     return {projetos:[...iniciais],registros:[]};
   };
@@ -74,7 +102,7 @@
 
         <label>Prioridade
           <select name="prioridade">
-            ${["Baixa","Normal","Alta","Crítica"]
+            ${["Baixa","Normal","Alta","Crítica","Máxima"]
               .map(x=>`<option ${p.prioridade===x?"selected":""}>${x}</option>`).join("")}
           </select>
         </label>
