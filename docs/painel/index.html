@@ -33,7 +33,7 @@
         <button class="menu-item" data-view="patrimonio">Patrimônio</button>
         <button class="menu-item" data-view="imoveis">Imóveis</button>
         <button class="menu-item" data-view="clientes">Clientes</button>
-        <button class="menu-item" data-view="agro">Agro</button>
+        <button class="menu-item" data-view="projetos">Projetos / Registro diário</button>
         <button class="menu-item" data-view="financeiro">Financeiro</button>
         <button class="menu-item" data-view="mapas">Mapas</button>
         <button class="menu-item" data-view="api">API / Control Plane</button>
@@ -236,53 +236,46 @@
         </div>
       </section>
 
-      <section id="view-agro" class="content view">
+      <section id="view-projetos" class="content view">
         <div class="section-header">
           <div>
-            <h2>Agro</h2>
-            <p>Operação agrícola, produção, máquinas e safra.</p>
+            <span class="eyebrow">CENTRAL DE PROJETOS</span>
+            <h2>Projetos / Registro diário</h2>
+            <p>Projetos, evolução, prioridades, próximas ações e histórico diário.</p>
+          </div>
+
+          <div class="section-actions">
+            <button id="btnNovoProjeto" class="btn-secondary" type="button">Novo projeto</button>
+            <button id="btnNovoRegistro" class="btn-primary" type="button">Novo registro diário</button>
+            <button id="btnBackupProjetos" class="btn-secondary" type="button">Exportar backup</button>
           </div>
         </div>
 
         <div class="overview-grid">
           <article class="info-card">
-            <span>Planejamento agrícola</span>
-            <strong>—</strong>
+            <span>Projetos cadastrados</span>
+            <strong id="projTotal">0</strong>
           </article>
           <article class="info-card">
-            <span>Área em atividade</span>
-            <strong>—</strong>
+            <span>Em andamento</span>
+            <strong id="projAtivos">0</strong>
           </article>
           <article class="info-card">
-            <span>Operação</span>
-            <strong>Operação agrícola</strong>
+            <span>Registros hoje</span>
+            <strong id="projHoje">0</strong>
           </article>
         </div>
 
-        <div class="operational-grid">
-          <article class="operation-panel">
-            <h3>Safra</h3>
-            <p>Produção realizada</p>
-            <strong>— t</strong>
-            <p>Produtividade média</p>
-            <strong>— kg/ha</strong>
-          </article>
+        <div id="projetosGrid" class="operational-grid"></div>
 
-          <article class="operation-panel">
-            <h3>Máquinas</h3>
-            <p>Máquinas em operação</p>
-            <strong>—</strong>
-            <p>Alertas de manutenção</p>
-            <strong>—</strong>
-          </article>
-
-          <article class="operation-panel">
-            <h3>Operação</h3>
-            <p>Talhões ativos</p>
-            <strong>—</strong>
-            <p>Sincronização</p>
-            <strong>Online</strong>
-          </article>
+        <div class="control-console" style="margin-top:24px">
+          <div class="control-console-header">
+            <div>
+              <span class="eyebrow">HISTÓRICO</span>
+              <h3>Registro diário de evolução</h3>
+            </div>
+          </div>
+          <div id="registroDiarioLista" class="control-events"></div>
         </div>
       </section>
 
@@ -1092,6 +1085,7 @@
   </div>
 
   <script src="../js/app.js"></script>
+<script src="../js/projetos.js?v=20260910-01"></script>
 <script src="../js/financeiro.js"></script>
   <script src="../js/clientes.js"></script>
   <script src="../js/mapas.js"></script>

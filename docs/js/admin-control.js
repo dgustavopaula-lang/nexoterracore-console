@@ -3,7 +3,7 @@
   const LOCAL_KEY = "nexoterracore.admin.workspace.v2";
 
   const MODULOS = [
-    { id:"agro-digital", n:"01", titulo:"Agro Digital", subtitulo:"AgroCore / operação agro", descricao:"Projeto agro, fazendas, rastreabilidade, telemetria, clientes e evolução comercial.", view:"agro" },
+    { id:"agro-digital", n:"01", titulo:"Agro Digital", subtitulo:"AgroCore / operação agro", descricao:"Projeto agro, fazendas, rastreabilidade, telemetria, clientes e evolução comercial.", view:"projetos" },
     { id:"turing", n:"02", titulo:"Turing", subtitulo:"Aplicativo de inteligência artificial", descricao:"Produto público de IA, experiência mobile, API, NTCoins e evolução do agente Turing.", view:"turing" },
     { id:"mercado-financeiro", n:"03", titulo:"Mercado Financeiro", subtitulo:"Análise econômica e estratégica", descricao:"Indicadores, cenários, ativos, estudos econômicos, riscos, oportunidades e decisões." },
     { id:"programacao", n:"04", titulo:"Programação", subtitulo:"Engenharia e desenvolvimento", descricao:"Backlog técnico, APIs, frontend, PostgreSQL, segurança, testes, deploy e manutenção." },
