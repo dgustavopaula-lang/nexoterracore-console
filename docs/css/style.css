@@ -3320,3 +3320,43 @@ body {
   }
 }
 
+
+
+/* ===== TURING LIVE TELEMETRY ===== */
+
+#turing-security-card[data-security-state="PASS"] {
+  border-color: rgba(0,217,155,.35);
+}
+
+#turing-security-card[data-security-state="WARN"] {
+  border-color: rgba(232,184,65,.55);
+}
+
+#turing-security-card[data-security-state="ALERT"] {
+  border-color: rgba(235,88,88,.6);
+}
+
+.turing-status-pill.turing-warn {
+  color: #e8b841;
+  background: rgba(232,184,65,.10);
+}
+
+.turing-status-pill.turing-warn span {
+  background: #e8b841;
+  box-shadow: 0 0 12px rgba(232,184,65,.7);
+}
+
+.turing-status-pill.turing-alert {
+  color: #eb5858;
+  background: rgba(235,88,88,.10);
+}
+
+.turing-status-pill.turing-alert span {
+  background: #eb5858;
+  box-shadow: 0 0 12px rgba(235,88,88,.7);
+}
+
+#turingLiveMeta {
+  margin-top: 3px;
+  opacity: .9;
+}

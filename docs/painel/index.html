@@ -126,9 +126,9 @@
                 </div>
               </div>
 
-              <div class="turing-status-pill">
+              <div id="turingStatusPill" class="turing-status-pill">
                 <span></span>
-                Ativo
+                <b id="turingStatusPillText">Conectando</b>
               </div>
 
             </div>
@@ -153,7 +153,7 @@
 
                 <div>
                   <span>Status</span>
-                  <strong class="turing-ok">Ativo</strong>
+                  <strong id="turingLiveStatus" class="turing-ok">Conectando</strong>
                 </div>
 
                 <div>
@@ -168,7 +168,7 @@
 
                 <div>
                   <span>Último comando</span>
-                  <strong>SEC.AUTH.FAILS v3</strong>
+                  <strong id="turingLastCommand">SEC.AUTH.FAILS v3</strong>
                 </div>
 
               </div>
@@ -207,6 +207,7 @@
                 <div class="turing-learning-note">
                   <strong>Treinamento em andamento</strong>
                   <span>API Core · autenticação · exposição · sinais</span>
+                  <span id="turingLiveMeta">Aguardando telemetria real...</span>
                 </div>
 
               </div>
@@ -1696,5 +1697,6 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 
+    <script src="../js/turing-security.js"></script>
 </body>
 </html>
