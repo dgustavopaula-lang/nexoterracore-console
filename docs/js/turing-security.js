@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const FALLBACK_API = "https://nexoterracore-api.onrender.com";
+  const FALLBACK_API = "https://api.gustavopaulasantos.com.br";
   const INTERVALO_MS = 30000;
 
   function apiBase() {
@@ -15,6 +15,14 @@
     } catch (_) {}
 
     return FALLBACK_API;
+  }
+
+  function token() {
+    return (
+      (typeof SalaDeComando !== "undefined" && SalaDeComando.token) ||
+      window.nexoAuthToken ||
+      null
+    );
   }
 
   function texto(id, valor) {
@@ -47,6 +55,73 @@
     }
 
     texto("turingLiveMeta", detalhe);
+  }
+
+  async function atualizarMaturidade() {
+    const auth = token();
+    if (!auth) return;
+
+    try {
+      const resposta = await fetch(`${apiBase()}/api/control-plane`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${auth}`
+        },
+        cache: "no-store"
+      });
+
+      if (!resposta.ok) return;
+
+      const dados = await resposta.json();
+      const resumo = dados?.turingSecurity?.resumo || {};
+      const eventos = Array.isArray(dados?.turingSecurity?.eventos)
+        ? dados.turingSecurity.eventos
+        : [];
+
+      const total = Number(resumo.total || 0);
+      const eventos24h = Number(resumo.eventos_24h || 0);
+      const warn = Number(resumo.warn || 0);
+      const alert = Number(resumo.alert || 0);
+
+      let nivel = 10;
+      let rotulo = "Observa o núcleo";
+
+      if (total >= 10) {
+        nivel = 20;
+        rotulo = "Mantém telemetria";
+      }
+
+      if (total >= 60) {
+        nivel = 30;
+        rotulo = "Detecta padrões";
+      }
+
+      if (eventos24h >= 720) {
+        nivel = 40;
+        rotulo = "Observação contínua";
+      }
+
+      if (warn > 0 || alert > 0) {
+        nivel = Math.max(nivel, 50);
+        rotulo = "Classifica anomalias";
+      }
+
+      const ultimo = eventos[0];
+
+      texto(
+        "turingLastCommand",
+        ultimo?.evento
+          ? `${ultimo.evento} · ${ultimo.estado || "—"}`
+          : "Aguardando evento"
+      );
+
+      texto("turingMaturityLevel", `Nível ${nivel}`);
+      texto("turingMaturityLabel", rotulo);
+
+    } catch (_) {
+      // Mantém o último estado válido do Console.
+    }
   }
 
   async function atualizar() {
@@ -124,7 +199,12 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     atualizar();
-    setInterval(atualizar, INTERVALO_MS);
+    atualizarMaturidade();
+
+    setInterval(() => {
+      atualizar();
+      atualizarMaturidade();
+    }, INTERVALO_MS);
   });
 
   document.addEventListener("visibilitychange", () => {
