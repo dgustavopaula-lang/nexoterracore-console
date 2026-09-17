@@ -1,0 +1,168 @@
+/* NexoTerraCore — refinamento profissional 16/09/2026 */
+
+/* Tipografia geral */
+.brand strong {
+  font-size: 20px;
+}
+
+.brand span {
+  font-size: 11px;
+}
+
+.menu-item {
+  min-height: 46px;
+  font-size: 14.5px;
+  padding-left: 14px;
+}
+
+.sidebar-footer strong {
+  font-size: 14px;
+}
+
+.sidebar-footer span {
+  font-size: 12px;
+}
+
+.topbar h1 {
+  font-size: 23px;
+}
+
+.topbar p {
+  font-size: 13px;
+}
+
+.system-status strong {
+  font-size: 12px;
+}
+
+.content h2 {
+  font-size: 27px;
+}
+
+.content p {
+  font-size: 15px;
+}
+
+.info-card span {
+  font-size: 12px;
+}
+
+.info-card strong {
+  font-size: 19px;
+}
+
+.btn-primary,
+.btn-secondary {
+  min-height: 43px;
+  font-size: 14.5px;
+}
+
+.data-table th {
+  font-size: 11.5px;
+}
+
+.data-table td {
+  font-size: 14px;
+}
+
+/* Central de Projetos */
+#view-projetos {
+  width: min(1440px, 100%);
+  min-height: 0;
+  padding: 26px;
+}
+
+#view-projetos .section-header {
+  margin-bottom: 18px;
+}
+
+#view-projetos .section-header h2 {
+  margin-top: 5px;
+  font-size: 30px;
+}
+
+#view-projetos .section-header p {
+  max-width: 720px;
+  font-size: 15px;
+}
+
+#view-projetos .overview-grid {
+  margin-top: 16px;
+  gap: 12px;
+}
+
+#view-projetos .info-card {
+  min-height: 92px;
+  padding: 16px 18px;
+}
+
+#view-projetos .info-card span {
+  margin-bottom: 7px;
+}
+
+#view-projetos .info-card strong {
+  font-size: 23px;
+}
+
+#projetosGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+#projetosGrid .operation-panel {
+  min-height: 210px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  transition:
+    border-color .18s ease,
+    background .18s ease,
+    transform .18s ease;
+}
+
+#projetosGrid .operation-panel:hover {
+  border-color: rgba(0,217,155,.42);
+  background: rgba(13,40,45,.86);
+  transform: translateY(-1px);
+}
+
+#projetosGrid .operation-panel h3 {
+  margin: 0 0 7px;
+  font-size: 20px;
+}
+
+#projetosGrid .operation-panel p {
+  margin: 8px 0 3px;
+  font-size: 13.5px;
+}
+
+#projetosGrid .operation-panel strong {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+#projetosGrid .admin-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+#projetosGrid .admin-actions button {
+  width: auto;
+  flex: 1;
+  margin: 0;
+}
+
+#view-projetos .control-console {
+  margin-top: 18px !important;
+}
+
+@media (max-width: 900px) {
+  #projetosGrid {
+    grid-template-columns: 1fr;
+  }
+
+  #view-projetos {
+    padding: 20px;
+  }
+}
