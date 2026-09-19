@@ -1,4 +1,4 @@
-const CACHE = "nexoterracore-mobile-v16";
+const CACHE = "nexoterracore-20260919-0843";
 
 const APP_SHELL = [
   "./",
@@ -15,8 +15,8 @@ const APP_SHELL = [
   "./js/contas-seguranca.js",
   "./js/admin-control.js",
   "./js/control-plane.js",
-  "./icons/nexoterracore-192.png",
-  "./icons/nexoterracore-512.png"
+  "./icons/nexoterracore-20260919-0843",
+  "./icons/nexoterracore-20260919-0843"
 ];
 
 self.addEventListener("install", event => {
