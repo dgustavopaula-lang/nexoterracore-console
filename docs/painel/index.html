@@ -20,7 +20,7 @@
 
 <body>
 
-  <div class="app-shell" id="appShellMain">
+  <div class="app-shell app-locked" id="appShellMain">
 
     <aside class="sidebar" id="sidebar">
       <button id="btnSidebar" class="sidebar-toggle" type="button" title="Recolher menu">☰</button>
@@ -73,6 +73,7 @@
         </div>
 
         <div class="topbar-actions">
+          <button id="btnSair" class="btn-secondary oculto" type="button">Encerrar sessão</button>
           <div class="system-status">
             <span>API</span>
             <strong>Aguardando conexão</strong>
@@ -1482,6 +1483,101 @@
   </div>
 
 
+
+  <div id="modalLogin" class="modal login-modal">
+    <div class="login-shell">
+      <section class="login-brand-panel">
+        <div class="login-brand-top">
+          <div class="login-logo">T</div>
+          <div>
+            <strong>Turing Security</strong>
+            <span>NexoTerraCore</span>
+          </div>
+        </div>
+
+        <div class="login-brand-content">
+          <span class="login-kicker">GATEWAY DE SEGURANÇA</span>
+          <h1>Console protegido.</h1>
+          <p>
+            A Sala de Comando permanece bloqueada até a API validar
+            uma sessão com perfil de proprietário.
+          </p>
+
+          <div class="login-status-grid">
+            <article>
+              <span>CORE</span>
+              <strong>API oficial</strong>
+            </article>
+            <article>
+              <span>DADOS</span>
+              <strong>PostgreSQL</strong>
+            </article>
+            <article>
+              <span>SEGURANÇA</span>
+              <strong>Turing Security</strong>
+            </article>
+          </div>
+        </div>
+
+        <div class="login-brand-footer">
+          NexoTerraCore · Turing Security Gateway
+        </div>
+      </section>
+
+      <section class="login-form-panel">
+        <div class="login-form-header">
+          <span class="login-kicker">ACESSO DO PROPRIETÁRIO</span>
+          <h2>Validar identidade</h2>
+          <div class="access-badge">AMBIENTE PRIVADO</div>
+          <p>O Console só é liberado depois da autenticação real na API.</p>
+        </div>
+
+        <form id="formLogin" class="login-form">
+          <label>
+            E-mail
+            <input
+              id="loginUsuario"
+              name="usuario"
+              type="text"
+              autocomplete="username"
+              placeholder="seu e-mail de acesso"
+              required
+            >
+          </label>
+
+          <label>
+            Senha
+            <input
+              id="loginSenha"
+              name="senha"
+              type="password"
+              autocomplete="current-password"
+              placeholder="••••••••"
+              required
+            >
+          </label>
+
+          <div class="login-security-note">
+            <span></span>
+            Sessão validada pela API e restrita ao perfil proprietário.
+          </div>
+
+          <div id="erroLogin" class="form-error"></div>
+
+          <button type="submit" class="btn-primary login-submit">
+            Autorizar acesso
+          </button>
+        </form>
+
+        <div class="login-footer-info">
+          <span>API</span>
+          <strong>api.gustavopaulasantos.com.br</strong>
+          <span>Sem atalho de fechamento</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
   <div id="modalFazenda" class="modal oculto">
     <div class="modal-card">
       <div class="modal-header">
@@ -1499,7 +1595,7 @@
     </div>
   </div>
 
-  <script src="../js/app.js?v=20260916-02"></script>
+  <script src="../js/app.js?v=20260919-security-01"></script>
 <script src="../js/projetos.js?v=20260910-02"></script>
   <script src="../js/loteamento-campanha.js?v=20260910-01"></script>
 <script src="../js/projeto-turing.js?v=20260910-02"></script>
@@ -1555,30 +1651,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const app = document.getElementById("appShellMain");
-  const modal = document.getElementById("modalLogin");
-
-  function liberarConsole() {
-    if (!app) return;
-    app.classList.remove("app-locked");
-  }
-
-  const observer = new MutationObserver(() => {
-    if (modal && modal.classList.contains("oculto")) {
-      liberarConsole();
-    }
-  });
-
-  if (modal) {
-    observer.observe(modal, {
-      attributes: true,
-      attributeFilter: ["class"]
-    });
-  }
-});
-</script>
 
 
 <script>
