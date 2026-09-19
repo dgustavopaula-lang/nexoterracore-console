@@ -196,7 +196,7 @@ const SalaDeComando = {
     });
   },
 
-  mostrarFazendas(  mostrarFazendas(fazendas) {
+  mostrarFazendas(fazendas) {
     const modal = document.querySelector("#modalFazenda");
     const lista = document.querySelector("#listaFazendas");
 
