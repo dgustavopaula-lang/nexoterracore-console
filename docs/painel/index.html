@@ -3,7 +3,7 @@
 <head>
   <meta name="author" content="Gustavo Paula dos Santos">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">\n  <meta http-equiv="Pragma" content="no-cache">\n  <meta http-equiv="Expires" content="0">
   <title>NexoTerraCore — Sala de Comando</title>
   <link rel="stylesheet" href="../css/style.css?v=20260910-05">
 <link rel="stylesheet" href="../css/console-profissional-v1.css?v=20260916-01">
@@ -1595,7 +1595,7 @@
     </div>
   </div>
 
-  <script src="../js/app.js?v=20260919-security-01"></script>
+  <script src="../js/app.js?v=20260919-cleanup-01"></script>
 <script src="../js/projetos.js?v=20260910-02"></script>
   <script src="../js/loteamento-campanha.js?v=20260910-01"></script>
 <script src="../js/projeto-turing.js?v=20260910-02"></script>
@@ -1655,11 +1655,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("../service-worker.js?v=20260916-02")
-      .then(() => console.log("NexoTerraCore PWA ativo"))
-      .catch(err => console.error("Erro PWA:", err));
+  window.addEventListener("load", async () => {
+    try {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(reg => reg.unregister()));
+      if ("caches" in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map(key => caches.delete(key)));
+      }
+      console.log("Caches antigos e Service Workers removidos.");
+    } catch (err) {
+      console.error("Falha ao limpar cache legado:", err);
+    }
   });
 }
 </script>
