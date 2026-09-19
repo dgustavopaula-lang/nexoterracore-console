@@ -1,4 +1,4 @@
-const CACHE_VERSION = "nexoterracore-reset-20260919-0849";
+const CACHE_VERSION = "nexoterracore-reset-20260919-security-01";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
