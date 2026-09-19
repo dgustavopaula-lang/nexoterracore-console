@@ -56,20 +56,28 @@ const SalaDeComando = {
     const form = document.querySelector("#formLogin");
     const btnEntrar = document.querySelector("#btnEntrar");
     const btnSair = document.querySelector("#btnSair");
-    const fechar = document.querySelector("#fecharLogin");
+    const app = document.querySelector("#appShellMain");
 
-    if (!modal || !form || !btnEntrar || !btnSair || !fechar) return;
+    if (!modal || !form) return;
 
-    btnEntrar.addEventListener("click", () => {
+    const bloquearConsole = () => {
+      app?.classList.add("app-locked");
       modal.classList.remove("oculto");
-      document.querySelector("#loginUsuario").focus();
-    });
+    };
 
-    fechar.addEventListener("click", () => {
+    const liberarConsole = () => {
+      app?.classList.remove("app-locked");
       modal.classList.add("oculto");
+    };
+
+    bloquearConsole();
+
+    btnEntrar?.addEventListener("click", () => {
+      bloquearConsole();
+      document.querySelector("#loginUsuario")?.focus();
     });
 
-    btnSair.addEventListener("click", () => {
+    btnSair?.addEventListener("click", () => {
       this.token = null;
       window.nexoAuthToken = null;
       this.desafioLogin = null;
@@ -77,8 +85,10 @@ const SalaDeComando = {
       document.querySelector("#statusSessao").textContent =
         "Sessão não iniciada";
 
-      btnEntrar.classList.remove("oculto");
-      btnSair.classList.add("oculto");
+      btnEntrar?.classList.remove("oculto");
+      btnSair?.classList.add("oculto");
+      bloquearConsole();
+      form.reset();
 
       document.querySelector("#totalImoveis").textContent = "—";
       document.querySelector("#statusImoveis").textContent =
@@ -123,7 +133,7 @@ const SalaDeComando = {
         }
 
         this.ativarSessao(dados);
-        modal.classList.add("oculto");
+        liberarConsole();
         form.reset();
       } catch (erroLogin) {
         erro.textContent = erroLogin.message;
@@ -206,8 +216,10 @@ const SalaDeComando = {
     document.querySelector("#statusSessao").textContent =
       `${nome} · ${fazenda}`;
 
-    document.querySelector("#btnEntrar").classList.add("oculto");
-    document.querySelector("#btnSair").classList.remove("oculto");
+    document.querySelector("#btnEntrar")?.classList.add("oculto");
+    document.querySelector("#btnSair")?.classList.remove("oculto");
+    document.querySelector("#appShellMain")?.classList.remove("app-locked");
+    document.querySelector("#modalLogin")?.classList.add("oculto");
 
     this.carregarImoveis();
   },
@@ -459,6 +471,8 @@ const SalaDeComando = {
 
   iniciar() {
     console.log("NexoTerraCore — Sala de Comando iniciada");
+    document.querySelector("#appShellMain")?.classList.add("app-locked");
+    document.querySelector("#modalLogin")?.classList.remove("oculto");
     this.verificarAPI();
     this.configurarNavegacao();
     this.configurarLogin();
