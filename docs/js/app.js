@@ -58,6 +58,8 @@ const SalaDeComando = {
     const btnSair = document.querySelector("#btnSair");
     const fechar = document.querySelector("#fecharLogin");
 
+    if (!modal || !form || !btnEntrar || !btnSair || !fechar) return;
+
     btnEntrar.addEventListener("click", () => {
       modal.classList.remove("oculto");
       document.querySelector("#loginUsuario").focus();
@@ -388,7 +390,7 @@ const SalaDeComando = {
       .querySelector("#btnAtualizarImoveis")
       .addEventListener("click", () => {
         if (!this.token) {
-          document.querySelector("#modalLogin").classList.remove("oculto");
+          alert("Este módulo usa dados protegidos da API e será reconectado separadamente.");
           return;
         }
 
@@ -435,7 +437,7 @@ const SalaDeComando = {
       .querySelector("#btnNovoImovel")
       .addEventListener("click", () => {
         if (!this.token) {
-          document.querySelector("#modalLogin").classList.remove("oculto");
+          alert("Este módulo usa dados protegidos da API e será reconectado separadamente.");
           return;
         }
 
