@@ -193,7 +193,7 @@ if(!q)return;
 add('user',q);
 i.value='';
 try{
-const r=await fetch('https://nexoterracore-api.onrender.com/api/turing/publico',{
+const r=await fetch('https://api.gustavopaulasantos.com.br/api/turing/publico',{
 method:'POST',
 headers:{'Content-Type':'application/json','Accept':'application/json'},
 body:JSON.stringify({pergunta:q})
@@ -206,7 +206,7 @@ add('turing','Turing está temporariamente indisponível.');
 }
 document.getElementById('send').addEventListener('click',send);document.getElementById('input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('input').value=b.dataset.q;send()}));
 add('turing','Olá. Eu sou o Turing. Este é meu acesso público. Posso explicar o NexoTerraCore e seus principais conceitos. Para dados privados e operações internas, o acesso continua protegido pelo Console.');
-fetch('https://nexoterracore-api.onrender.com/api/health').then(r=>r.ok?r.json():Promise.reject()).then(()=>document.getElementById('apiStatus').textContent='Núcleo NexoTerraCore online').catch(()=>document.getElementById('apiStatus').textContent='Interface pública online');
+fetch('https://api.gustavopaulasantos.com.br/api/health').then(r=>r.ok?r.json():Promise.reject()).then(()=>document.getElementById('apiStatus').textContent='Núcleo NexoTerraCore online').catch(()=>document.getElementById('apiStatus').textContent='Interface pública online');
 if('serviceWorker' in navigator){navigator.serviceWorker.register('../service-worker.js').catch(()=>{})}
 </script>
 
