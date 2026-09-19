@@ -1,54 +1,18 @@
-const CACHE = "nexoterracore-20260919-0843";
+const CACHE_VERSION = "nexoterracore-reset-20260919-0849";
 
-const APP_SHELL = [
-  "./",
-  "./painel/",
-  "./turing/",
-  "./turing/manifest.webmanifest",
-  "./manifest.json",
-  "./css/style.css",
-  "./js/app.js",
-  "./js/turing.js",
-  "./js/projetos.js",
-  "./js/loteamento-campanha.js",
-  "./js/projeto-turing.js",
-  "./js/contas-seguranca.js",
-  "./js/admin-control.js",
-  "./js/control-plane.js",
-  "./icons/nexoterracore-20260919-0843",
-  "./icons/nexoterracore-20260919-0843"
-];
-
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(APP_SHELL))
-  );
+self.addEventListener("install", () => {
   self.skipWaiting();
 });
 
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(key => key !== CACHE).map(key => caches.delete(key))
-      )
-    )
+    caches.keys()
+      .then(keys => Promise.all(keys.map(key => caches.delete(key))))
+      .then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
-
-  event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        if (response.ok && event.request.url.startsWith(self.location.origin)) {
-          const copia = response.clone();
-          caches.open(CACHE).then(cache => cache.put(event.request, copia));
-        }
-        return response;
-      })
-      .catch(() => caches.match(event.request))
-  );
+  event.respondWith(fetch(event.request));
 });
