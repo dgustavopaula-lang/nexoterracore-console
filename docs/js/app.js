@@ -65,13 +65,38 @@ const SalaDeComando = {
   },
 
   async autorizarConsole(token) {
-    const resposta = await fetch(`${this.apiBase}/api/auth/console`, {
+    let resposta = await fetch(`${this.apiBase}/api/auth/console`, {
       method: "POST",
       credentials: "include",
       headers: {
         Authorization: `Bearer ${token}`
       }
     });
+
+    if (resposta.status === 404 || resposta.status === 405) {
+      resposta = await fetch(`${this.apiBase}/api/auth/me`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      const sessao = await resposta.json().catch(() => ({}));
+
+      if (!resposta.ok) {
+        throw new Error(sessao.erro || "Sessão não autorizada.");
+      }
+
+      if (!Array.isArray(sessao.perfis) || !sessao.perfis.includes("proprietario")) {
+        throw new Error("Acesso ao Console restrito ao perfil proprietário.");
+      }
+
+      return {
+        autorizado: true,
+        usuario: sessao.usuario,
+        perfis: sessao.perfis,
+        modo: "compatibilidade"
+      };
+    }
 
     const dados = await resposta.json().catch(() => ({}));
 
