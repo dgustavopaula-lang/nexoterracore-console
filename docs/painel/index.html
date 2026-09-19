@@ -20,7 +20,7 @@
 
 <body>
 
-  <div class="app-shell app-locked" id="appShellMain">
+  <div class="app-shell" id="appShellMain">
 
     <aside class="sidebar" id="sidebar">
       <button id="btnSidebar" class="sidebar-toggle" type="button" title="Recolher menu">☰</button>
@@ -46,7 +46,7 @@
 
       <div class="sidebar-footer">
         <strong>Gustavo Admin</strong>
-        <span id="statusSessao">Sessão não iniciada</span>
+        <span id="statusSessao">Acesso direto temporário</span>
       </div>
     </aside>
 
@@ -73,7 +73,7 @@
         </div>
 
         <div class="topbar-actions">
-          <button id="btnEntrar" class="btn-secondary">Entrar</button>
+          <button id="btnEntrar" class="btn-secondary oculto">Entrar</button>
           <button id="btnSair" class="btn-secondary oculto">Sair</button>
 
           <div class="system-status">
@@ -1485,7 +1485,7 @@
   </div>
 
 
-  <div id="modalLogin" class="modal login-modal">
+  <div id="modalLogin" class="modal login-modal oculto">
     <div class="login-shell">
 
       <section class="login-brand-panel">
@@ -1605,7 +1605,7 @@
     </div>
   </div>
 
-  <script src="../js/app.js"></script>
+  <script src="../js/app.js?v=20260916-02"></script>
 <script src="../js/projetos.js?v=20260910-02"></script>
   <script src="../js/loteamento-campanha.js?v=20260910-01"></script>
 <script src="../js/projeto-turing.js?v=20260910-02"></script>
@@ -1691,13 +1691,13 @@ document.addEventListener("DOMContentLoaded", () => {
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("../service-worker.js")
+      .register("../service-worker.js?v=20260916-02")
       .then(() => console.log("NexoTerraCore PWA ativo"))
       .catch(err => console.error("Erro PWA:", err));
   });
 }
 </script>
 
-    <script src="../js/turing-security.js"></script>
+    <script src="../js/turing-security.js?v=20260916-02"></script>
 </body>
 </html>
