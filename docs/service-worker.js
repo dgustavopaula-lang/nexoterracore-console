@@ -1,4 +1,4 @@
-const CACHE_VERSION = "nexoterracore-reset-20260919-security-01";
+const CACHE_VERSION = "nexoterracore-retired-20260919";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
@@ -6,13 +6,9 @@ self.addEventListener("install", () => {
 
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.map(key => caches.delete(key))))
-      .then(() => self.clients.claim())
+    Promise.all([
+      caches.keys().then(keys => Promise.all(keys.map(key => caches.delete(key)))),
+      self.registration.unregister()
+    ])
   );
-});
-
-self.addEventListener("fetch", event => {
-  if (event.request.method !== "GET") return;
-  event.respondWith(fetch(event.request));
 });
