@@ -6,8 +6,8 @@
 
   const API_BASE =
     ["localhost", "127.0.0.1"].includes(location.hostname)
-      ? "http://localhost:3000"
-      : "https://nexoterracore-api.onrender.com";
+      ? "https://api.gustavopaulasantos.com.br"
+      : "https://api.gustavopaulasantos.com.br";
 
   const PADRAO = {
     areaTotalM2: 20000,
