@@ -41,7 +41,7 @@
   function apiBase() {
     return typeof SalaDeComando !== "undefined"
       ? SalaDeComando.apiBase
-      : "https://nexoterracore-api.onrender.com";
+      : "https://api.gustavopaulasantos.com.br";
   }
 
   async function api(caminho, opcoes = {}) {
