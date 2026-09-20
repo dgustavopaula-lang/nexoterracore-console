@@ -3,13 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=./turing/">
-  <link rel="canonical" href="./turing/">
-  <title>Turing | NexoTerraCore</title>
-  <script>window.location.replace('./turing/');</script>
+  <meta name="theme-color" content="#071116">
+  <meta name="description" content="NexoTerraCore — núcleo digital para integração, inteligência artificial, dados e operações.">
+  <link rel="canonical" href="https://core.gustavopaulasantos.com.br/">
+  <title>NexoTerraCore | Core</title>
+  <style>
+    :root{
+      --bg:#071116;--panel:#0d1a20;--panel2:#101f26;--line:#20343e;
+      --text:#f5f7f8;--muted:#9babb3;--orange:#ff6b1a;--cyan:#1ed7e5;--green:#21d59b;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:
+      radial-gradient(circle at 15% 0%,rgba(255,107,26,.12),transparent 28%),
+      radial-gradient(circle at 85% 0%,rgba(30,215,229,.10),transparent 28%),
+      var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+    header{border-bottom:1px solid var(--line);background:rgba(7,17,22,.88);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
+    .nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:800;font-size:1.1rem;letter-spacing:.02em}
+    .brand span{color:var(--orange)}
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap}
+    .navlinks a{color:var(--muted);font-size:.92rem}
+    .hero{padding:88px 0 58px}
+    .eyebrow{color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem}
+    h1{font-size:clamp(2.7rem,7vw,5.6rem);line-height:.94;margin:16px 0 22px;max-width:900px}
+    h1 span{color:var(--orange)}
+    .lead{font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.6;color:var(--muted);max-width:780px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:13px 18px;border-radius:10px;border:1px solid var(--line);font-weight:700}
+    .btn.primary{background:var(--orange);border-color:var(--orange);color:#111}
+    .btn.secondary{background:var(--panel)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:22px 0 64px}
+    .card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:24px;min-height:210px}
+    .card .kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);font-weight:700}
+    .card h2{margin:10px 0 10px;font-size:1.35rem}
+    .card p{color:var(--muted);line-height:1.55;margin:0 0 18px}
+    .status{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--green)}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--green);box-shadow:0 0 12px rgba(33,213,155,.7)}
+    .architecture{padding:10px 0 72px}
+    .architecture h2{font-size:clamp(1.8rem,4vw,3rem);margin-bottom:12px}
+    .architecture p{color:var(--muted);max-width:780px;line-height:1.6}
+    .flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin-top:26px}
+    .node{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:24px}
+    .node.orange{border-color:rgba(255,107,26,.55)}
+    .node.cyan{border-color:rgba(30,215,229,.55)}
+    .arrow{font-size:2rem;color:var(--orange)}
+    footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:.9rem}
+    @media(max-width:800px){
+      .grid{grid-template-columns:1fr}
+      .flow{grid-template-columns:1fr}
+      .arrow{transform:rotate(90deg);justify-self:center}
+      .navlinks{display:none}
+      .hero{padding-top:58px}
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecionando para o Turing...</p>
-  <p><a href="./turing/">Abrir Turing</a></p>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">Nexo<span>Terra</span>Core</a>
+    <nav class="navlinks">
+      <a href="#core">Core</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="https://turing.gustavopaulasantos.com.br">Turing</a>
+      <a href="https://gustavopaulasantos.com.br">GPS.dev</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div class="eyebrow">Núcleo digital inteligente</div>
+    <h1>Nexo<span>Terra</span>Core</h1>
+    <p class="lead">Uma base central para integrar dados, inteligência artificial, automação e operações em múltiplos setores, com API própria, arquitetura multitenant e serviços independentes.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://turing.gustavopaulasantos.com.br">Acessar Turing</a>
+      <a class="btn secondary" href="https://api.gustavopaulasantos.com.br/api/health">Ver status da API</a>
+    </div>
+  </section>
+
+  <section id="core" class="wrap grid">
+    <article class="card">
+      <div class="kicker">Core API</div>
+      <h2>NexoTerraCore API</h2>
+      <p>Núcleo de integração para autenticação, dados, módulos e serviços do ecossistema.</p>
+      <div class="status"><span class="dot"></span> Endpoint oficial ativo</div>
+    </article>
+    <article class="card">
+      <div class="kicker">Inteligência artificial</div>
+      <h2>Turing</h2>
+      <p>Camada de IA do NexoTerraCore, separada do núcleo e acessível por ambiente protegido.</p>
+      <a class="btn secondary" href="https://turing.gustavopaulasantos.com.br">Abrir ambiente protegido</a>
+    </article>
+    <article class="card">
+      <div class="kicker">Arquitetura</div>
+      <h2>Multiempresa</h2>
+      <p>Estrutura preparada para organizações, perfis, módulos e expansão por setor sem duplicar o núcleo.</p>
+      <div class="status"><span class="dot"></span> Core centralizado</div>
+    </article>
+  </section>
+
+  <section id="arquitetura" class="wrap architecture">
+    <div class="eyebrow">Arquitetura de referência</div>
+    <h2>Turing conversa com o Core. O Core organiza o ecossistema.</h2>
+    <p>O NexoTerraCore mantém responsabilidades separadas: a inteligência artificial atua como agente, enquanto a API central coordena autenticação, dados, serviços e integração com os módulos.</p>
+    <div class="flow">
+      <div class="node orange">
+        <strong>Turing</strong>
+        <p>Inteligência, agentes, conhecimento e interação.</p>
+      </div>
+      <div class="arrow">↔</div>
+      <div class="node cyan">
+        <strong>NexoTerraCore API</strong>
+        <p>Núcleo central de integração, segurança e dados.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">NexoTerraCore · Core oficial · Gustavo Paula dos Santos</div>
+</footer>
 </body>
 </html>
