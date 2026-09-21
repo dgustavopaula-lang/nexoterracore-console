@@ -229,6 +229,99 @@ header {
 
 </style>
 
+
+<style id="GPS_ECOSSISTEMA_LIVE_V1">
+
+.live-section {
+  margin-bottom: 18px;
+}
+
+.live-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.live-header h2 {
+  margin: 0;
+}
+
+.live-refresh {
+  border: 1px solid #cbd9cf;
+  background: #fff;
+  color: #17351f;
+  border-radius: 9px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.live-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.live-card {
+  background: #f8faf8;
+  border: 1px solid #d9e4dc;
+  border-radius: 12px;
+  padding: 18px;
+  min-height: 126px;
+}
+
+.live-label {
+  font-size: 13px;
+  opacity: .63;
+  margin-bottom: 8px;
+}
+
+.live-value {
+  font-size: 22px;
+  font-weight: 750;
+  margin-bottom: 8px;
+}
+
+.live-detail {
+  font-size: 13px;
+  line-height: 1.45;
+  opacity: .72;
+}
+
+.live-ok .live-value {
+  color: #17643a;
+}
+
+.live-error .live-value {
+  color: #8b2f2f;
+}
+
+.live-loading .live-value {
+  color: #6f7771;
+}
+
+.live-footer {
+  margin-top: 14px;
+  font-size: 12px;
+  opacity: .6;
+}
+
+@media (max-width: 600px) {
+  .live-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .live-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+</style>
+
 </head>
 
 <body>
@@ -244,6 +337,61 @@ header {
 </header>
 
 <main>
+
+<section class="nivel live-section">
+
+  <div class="live-header">
+    <div>
+      <h2>Status do Ecossistema</h2>
+      <p>
+        Telemetria pública em tempo real do NexoTerraCore.
+      </p>
+    </div>
+
+    <button
+      class="live-refresh"
+      id="liveRefresh"
+      type="button"
+    >
+      Atualizar
+    </button>
+  </div>
+
+  <div class="live-grid">
+
+    <div class="live-card live-loading" id="cardApi">
+      <div class="live-label">NexoTerraCore API</div>
+      <div class="live-value" id="apiValor">Verificando...</div>
+      <div class="live-detail" id="apiDetalhe">Conectando à API.</div>
+    </div>
+
+    <div class="live-card live-loading" id="cardTuring">
+      <div class="live-label">Turing</div>
+      <div class="live-value" id="turingValor">Verificando...</div>
+      <div class="live-detail" id="turingDetalhe">Consultando agente.</div>
+    </div>
+
+    <div class="live-card live-loading" id="cardBanco">
+      <div class="live-label">PostgreSQL</div>
+      <div class="live-value" id="bancoValor">Verificando...</div>
+      <div class="live-detail" id="bancoDetalhe">Consultando Core.</div>
+    </div>
+
+    <div class="live-card live-loading" id="cardAngola">
+      <div class="live-label">Turing Angola Radar</div>
+      <div class="live-value" id="angolaValor">Verificando...</div>
+      <div class="live-detail" id="angolaDetalhe">Consultando radar.</div>
+    </div>
+
+  </div>
+
+  <div class="live-footer">
+    Última atualização:
+    <span id="liveAtualizacao">aguardando</span>
+  </div>
+
+</section>
+
 
   <section class="nivel core">
     <h2>Raiz Mini Core</h2>
@@ -440,6 +588,295 @@ async function iniciarArquitetura() {
 }
 
 iniciarArquitetura();
+</script>
+
+
+<script>
+/* GPS_ECOSSISTEMA_LIVE_JS_V1 */
+
+const CORE_API =
+  "https://api.gustavopaulasantos.com.br";
+
+function liveEstado(card, estado) {
+  card.classList.remove(
+    "live-ok",
+    "live-error",
+    "live-loading"
+  );
+
+  card.classList.add(
+    estado === "ok"
+      ? "live-ok"
+      : estado === "error"
+        ? "live-error"
+        : "live-loading"
+  );
+}
+
+async function liveFetch(url, timeout = 8000) {
+
+  const controller =
+    new AbortController();
+
+  const timer =
+    setTimeout(
+      () => controller.abort(),
+      timeout
+    );
+
+  try {
+
+    const resposta =
+      await fetch(url, {
+        cache: "no-store",
+        signal: controller.signal
+      });
+
+    if (!resposta.ok) {
+      throw new Error(
+        "HTTP " + resposta.status
+      );
+    }
+
+    return await resposta.json();
+
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function atualizarEcossistema() {
+
+  const apiCard =
+    document.getElementById("cardApi");
+
+  const turingCard =
+    document.getElementById("cardTuring");
+
+  const bancoCard =
+    document.getElementById("cardBanco");
+
+  const angolaCard =
+    document.getElementById("cardAngola");
+
+  [
+    apiCard,
+    turingCard,
+    bancoCard,
+    angolaCard
+  ].forEach(card =>
+    liveEstado(card, "loading")
+  );
+
+  const resultados =
+    await Promise.allSettled([
+      liveFetch(
+        CORE_API + "/api/health"
+      ),
+
+      liveFetch(
+        CORE_API + "/api/turing/status"
+      ),
+
+      liveFetch(
+        CORE_API +
+        "/api/turing/angola/metricas"
+      )
+    ]);
+
+  /*
+   * API + Banco
+   */
+  if (resultados[0].status === "fulfilled") {
+
+    const dados =
+      resultados[0].value;
+
+    document
+      .getElementById("apiValor")
+      .textContent =
+        String(
+          dados.api || "online"
+        ).toUpperCase();
+
+    document
+      .getElementById("apiDetalhe")
+      .textContent =
+        dados.sistema ||
+        "NexoTerraCore";
+
+    liveEstado(apiCard, "ok");
+
+    const banco =
+      dados.banco || "desconhecido";
+
+    document
+      .getElementById("bancoValor")
+      .textContent =
+        String(banco).toUpperCase();
+
+    document
+      .getElementById("bancoDetalhe")
+      .textContent =
+        banco === "conectado"
+          ? "PostgreSQL conectado ao Core."
+          : "Estado informado pela API.";
+
+    liveEstado(
+      bancoCard,
+      banco === "conectado"
+        ? "ok"
+        : "error"
+    );
+
+  } else {
+
+    document
+      .getElementById("apiValor")
+      .textContent =
+        "INDISPONÍVEL";
+
+    document
+      .getElementById("apiDetalhe")
+      .textContent =
+        "Não foi possível consultar /api/health.";
+
+    document
+      .getElementById("bancoValor")
+      .textContent =
+        "SEM DADOS";
+
+    document
+      .getElementById("bancoDetalhe")
+      .textContent =
+        "Dependente do Core.";
+
+    liveEstado(apiCard, "error");
+    liveEstado(bancoCard, "error");
+  }
+
+  /*
+   * Turing
+   */
+  if (resultados[1].status === "fulfilled") {
+
+    const dados =
+      resultados[1].value;
+
+    const estado =
+      dados.estado ||
+      (dados.ok ? "online" : "indisponível");
+
+    document
+      .getElementById("turingValor")
+      .textContent =
+        String(estado).toUpperCase();
+
+    document
+      .getElementById("turingDetalhe")
+      .textContent =
+        "Agente: " +
+        (dados.agente || "Turing") +
+        " · Core: " +
+        (dados.core || "NexoTerraCore");
+
+    liveEstado(
+      turingCard,
+      dados.ok ? "ok" : "error"
+    );
+
+  } else {
+
+    document
+      .getElementById("turingValor")
+      .textContent =
+        "INDISPONÍVEL";
+
+    document
+      .getElementById("turingDetalhe")
+      .textContent =
+        "Falha ao consultar /api/turing/status.";
+
+    liveEstado(
+      turingCard,
+      "error"
+    );
+  }
+
+  /*
+   * Angola
+   */
+  if (resultados[2].status === "fulfilled") {
+
+    const dados =
+      resultados[2].value;
+
+    const metricas =
+      dados.metricas || {};
+
+    const sinais =
+      metricas.sinais_total ?? 0;
+
+    const temas =
+      metricas.temas_total ?? 0;
+
+    document
+      .getElementById("angolaValor")
+      .textContent =
+        sinais + " SINAIS";
+
+    document
+      .getElementById("angolaDetalhe")
+      .textContent =
+        temas +
+        " temas monitorados · " +
+        (dados.pais || "Angola");
+
+    liveEstado(
+      angolaCard,
+      dados.ok ? "ok" : "error"
+    );
+
+  } else {
+
+    document
+      .getElementById("angolaValor")
+      .textContent =
+        "INDISPONÍVEL";
+
+    document
+      .getElementById("angolaDetalhe")
+      .textContent =
+        "Falha ao consultar Radar Angola.";
+
+    liveEstado(
+      angolaCard,
+      "error"
+    );
+  }
+
+  document
+    .getElementById("liveAtualizacao")
+    .textContent =
+      new Date()
+        .toLocaleString(
+          "pt-BR"
+        );
+}
+
+document
+  .getElementById("liveRefresh")
+  .addEventListener(
+    "click",
+    atualizarEcossistema
+  );
+
+atualizarEcossistema();
+
+setInterval(
+  atualizarEcossistema,
+  60000
+);
 </script>
 
 </body>
