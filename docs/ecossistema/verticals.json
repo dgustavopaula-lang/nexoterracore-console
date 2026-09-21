@@ -1,0 +1,90 @@
+{
+  "barbearia": {
+    "nome": "Raiz Barbearia",
+    "icone": "tesoura",
+    "modulos": ["clientes", "agenda", "servicos", "financeiro", "comissoes"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "sapataria": {
+    "nome": "Raiz Sapataria",
+    "icone": "sapato",
+    "modulos": ["clientes", "ordens_servico", "servicos", "financeiro", "retiradas"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "oficina": {
+    "nome": "Raiz Oficina",
+    "icone": "ferramenta",
+    "modulos": ["clientes", "veiculos", "ordens_servico", "pecas", "financeiro"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "horta": {
+    "nome": "Raiz Horta",
+    "icone": "folha",
+    "modulos": ["canteiros", "plantios", "colheitas", "estoque", "vendas"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "ovos": {
+    "nome": "Raiz Ovos",
+    "icone": "ovo",
+    "modulos": ["lotes", "postura", "estoque", "clientes", "vendas"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "leite": {
+    "nome": "Raiz Leite",
+    "icone": "leite",
+    "modulos": ["animais", "ordenhas", "producao", "estoque", "vendas"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "gado": {
+    "nome": "Raiz Gado",
+    "icone": "gado",
+    "modulos": ["animais", "manejo", "pesagens", "movimentacoes", "financeiro"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "clinica": {
+    "nome": "Raiz Clínica",
+    "icone": "saude",
+    "modulos": ["pacientes", "agenda", "atendimentos", "financeiro"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "academia": {
+    "nome": "Raiz Academia",
+    "icone": "academia",
+    "modulos": ["alunos", "planos", "mensalidades", "presencas"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "hotel": {
+    "nome": "Raiz Hotel",
+    "icone": "hotel",
+    "modulos": ["hospedes", "quartos", "reservas", "financeiro"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  },
+  "loja": {
+    "nome": "Raiz Loja",
+    "icone": "loja",
+    "modulos": ["clientes", "produtos", "estoque", "vendas", "financeiro"],
+    "mobileFirst": true,
+    "pwa": true,
+    "offline": true
+  }
+}

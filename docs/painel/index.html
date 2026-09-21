@@ -1672,5 +1672,97 @@ if ("serviceWorker" in navigator) {
 </script>
 
     <script src="../js/turing-security.js?v=20260916-02"></script>
+
+<!-- GPS_ECOSSISTEMA_MENU_FINAL -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  if (
+    [...document.querySelectorAll("a")]
+      .some(a => (a.getAttribute("href") || "").includes("/ecossistema/"))
+  ) {
+    return;
+  }
+
+  const itens = [
+    ...document.querySelectorAll(
+      "nav a, aside a, .sidebar a, .menu a, [class*='sidebar'] a, [class*='menu'] a"
+    )
+  ];
+
+  const nomes = [
+    "Turing",
+    "Administração",
+    "Administracao",
+    "API",
+    "Mapas",
+    "Visão Geral"
+  ];
+
+  let ref = null;
+
+  for (const nome of nomes) {
+    ref = itens.find(el =>
+      (el.textContent || "")
+        .trim()
+        .toLowerCase()
+        .includes(nome.toLowerCase())
+    );
+
+    if (ref) break;
+  }
+
+  if (!ref) {
+    console.warn(
+      "[NexoTerraCore] Navegação não localizada para Ecossistema."
+    );
+    return;
+  }
+
+  const novo = ref.cloneNode(true);
+
+  novo.removeAttribute("id");
+  novo.removeAttribute("aria-current");
+
+  novo.classList.remove(
+    "active",
+    "ativo",
+    "selected",
+    "current"
+  );
+
+  novo.href = "/ecossistema/";
+  novo.target = "_blank";
+  novo.rel = "noopener";
+
+  const textos =
+    novo.querySelectorAll("span,strong,p,div");
+
+  let mudou = false;
+
+  for (const item of textos) {
+    const txt = (item.textContent || "").trim();
+
+    if (
+      txt &&
+      txt.length < 50 &&
+      nomes.some(n =>
+        txt.toLowerCase().includes(n.toLowerCase())
+      )
+    ) {
+      item.textContent = "Ecossistema";
+      mudou = true;
+      break;
+    }
+  }
+
+  if (!mudou) {
+    novo.textContent = "Ecossistema";
+  }
+
+  ref.insertAdjacentElement("afterend", novo);
+});
+</script>
+
 </body>
 </html>

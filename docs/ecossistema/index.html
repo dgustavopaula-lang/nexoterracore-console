@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+  <meta name="theme-color" content="#17351f">
+
+  <title>Ecossistema | NexoTerraCore</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f3f5f3;
+      color: #172019;
+      font-family: system-ui, sans-serif;
+    }
+
+    header {
+      background: #17351f;
+      color: white;
+      padding: 24px 18px;
+    }
+
+    header small {
+      opacity: .7;
+    }
+
+    header h1 {
+      margin: 5px 0;
+    }
+
+    header p {
+      margin: 0;
+      opacity: .85;
+    }
+
+    main {
+      max-width: 1400px;
+      margin: auto;
+      padding: 18px;
+    }
+
+    .nivel {
+      background: white;
+      border: 1px solid #dce3dd;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+
+    .nivel h2 {
+      margin-top: 0;
+    }
+
+    .core {
+      border: 2px solid #17351f;
+    }
+
+    .seta {
+      text-align: center;
+      font-size: 28px;
+      opacity: .45;
+      margin: -4px 0 7px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .item {
+      background: #f8faf8;
+      border: 1px solid #dde5de;
+      padding: 14px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .vertical {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .status {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .numero {
+      font-size: 27px;
+      font-weight: 700;
+    }
+
+    .rotulo {
+      font-size: 13px;
+      opacity: .65;
+    }
+
+    .online {
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      opacity: .6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    @media (min-width: 700px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .status {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+
+<style id="GPS_ECOSSISTEMA_WIDE_V1">
+
+/* Área principal ampla */
+main {
+  width: calc(100% - 48px) !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+  padding: 24px !important;
+}
+
+/* Blocos principais */
+.nivel {
+  width: 100%;
+  padding: 26px !important;
+  border-radius: 16px;
+}
+
+/* Grades mais amplas */
+.grid {
+  grid-template-columns:
+    repeat(auto-fit, minmax(210px, 1fr)) !important;
+  gap: 14px !important;
+}
+
+.status {
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr)) !important;
+  gap: 14px !important;
+}
+
+/* Melhor aproveitamento vertical */
+.item {
+  min-height: 72px;
+}
+
+/* Cabeçalho fixo para navegação diária */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Preparação para painel de status futuro */
+.ecossistema-status-global {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+/* Telas muito grandes */
+@media (min-width: 1500px) {
+  main {
+    max-width: 1800px !important;
+  }
+
+  .grid {
+    grid-template-columns:
+      repeat(auto-fit, minmax(230px, 1fr)) !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  main {
+    width: calc(100% - 24px) !important;
+    padding: 12px !important;
+  }
+
+  .nivel {
+    padding: 18px !important;
+  }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  main {
+    width: 100% !important;
+    padding: 10px !important;
+  }
+
+  .grid,
+  .status {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nivel {
+    padding: 15px !important;
+  }
+
+  header {
+    position: relative;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<!-- GPS_ECOSSISTEMA_CONSOLE -->
+
+
+<header>
+  <small>SISTEMA RAIZ</small>
+  <h1>Mapa do Ecossistema</h1>
+  <p>
+    Arquitetura viva do Raiz Mini Core
+  </p>
+</header>
+
+<main>
+
+  <section class="nivel core">
+    <h2>Raiz Mini Core</h2>
+
+    <p>
+      Um único núcleo para gerar mini softwares
+      especializados para diferentes negócios.
+    </p>
+
+    <div class="status">
+      <div class="item">
+        <div class="numero">1</div>
+        <div class="rotulo">Core</div>
+      </div>
+
+      <div class="item">
+        <div class="numero">1</div>
+        <div class="rotulo">PWA universal</div>
+      </div>
+
+      <div class="item">
+        <div class="numero" id="qtdVerticais">...</div>
+        <div class="rotulo">Verticais</div>
+      </div>
+
+      <div class="item">
+        <div class="numero" id="qtdModulos">...</div>
+        <div class="rotulo">Módulos únicos</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="seta">↓</div>
+
+  <section class="nivel">
+    <h2>Core compartilhado</h2>
+
+    <div class="grid">
+      <div class="item">Clientes</div>
+      <div class="item">Agenda</div>
+      <div class="item">Produtos</div>
+      <div class="item">Estoque</div>
+      <div class="item">Financeiro</div>
+      <div class="item">Histórico</div>
+      <div class="item">Relatórios</div>
+      <div class="item">PWA / Offline</div>
+    </div>
+  </section>
+
+  <div class="seta">↓</div>
+
+  <section class="nivel">
+    <h2>Verticais</h2>
+
+    <p>
+      O mesmo aplicativo muda de comportamento
+      conforme o arquivo de configuração.
+    </p>
+
+    <div id="verticais" class="grid"></div>
+  </section>
+
+  <div class="seta">↓</div>
+
+  <section class="nivel">
+    <h2>Turing</h2>
+
+    <div class="grid">
+      <div class="item">Assistente</div>
+      <div class="item">Feedback</div>
+      <div class="item">Radar Angola</div>
+      <div class="item">Token Radar</div>
+      <div class="item">Security Radar</div>
+      <div class="item">Aprendizado</div>
+      <div class="item">Métricas</div>
+      <div class="item">Automação</div>
+    </div>
+  </section>
+
+  <div class="seta">↓</div>
+
+  <section class="nivel">
+    <h2>Segurança transversal</h2>
+
+    <div class="grid">
+      <div class="item">HTTPS</div>
+      <div class="item">Credenciais</div>
+      <div class="item">Backups</div>
+      <div class="item">Logs</div>
+      <div class="item">Sessões</div>
+      <div class="item">Permissões</div>
+      <div class="item">Atualizações</div>
+      <div class="item">Auditoria Turing</div>
+    </div>
+  </section>
+
+  <div class="seta">↓</div>
+
+  <section class="nivel">
+    <h2>Ecossistema</h2>
+
+    <div class="grid">
+      <div class="item">
+        NexoTerraCore
+      </div>
+
+      <div class="item">
+        Sistema Raiz
+      </div>
+
+      <div class="item">
+        Turing
+      </div>
+
+      <div class="item">
+        PostgreSQL
+      </div>
+
+      <div class="item">
+        APIs
+      </div>
+
+      <div class="item">
+        Mobile / PWA
+      </div>
+
+      <div class="item">
+        Angola
+      </div>
+
+      <div class="item">
+        Pequenos negócios
+      </div>
+    </div>
+  </section>
+
+  <p style="text-align:center">
+    <a href="../">Voltar para o Console</a>
+  </p>
+
+</main>
+
+<footer>
+  Sistema Raiz — arquitetura orientada por configuração
+</footer>
+
+<script>
+async function iniciarArquitetura() {
+
+  const resposta =
+    await fetch("./verticals.json", { cache: "no-store" });
+
+  const verticais =
+    await resposta.json();
+
+  const container =
+    document.getElementById("verticais");
+
+  const todosModulos = new Set();
+
+  Object.entries(verticais)
+    .forEach(([chave, cfg]) => {
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "item vertical";
+
+      item.innerHTML =
+        "<div>" +
+        cfg.nome +
+        "<br><small>" +
+        cfg.modulos.length +
+        " módulos</small></div>";
+
+      container.appendChild(item);
+
+      cfg.modulos.forEach(
+        modulo =>
+          todosModulos.add(modulo)
+      );
+    });
+
+  document
+    .getElementById("qtdVerticais")
+    .textContent =
+      Object.keys(verticais).length;
+
+  document
+    .getElementById("qtdModulos")
+    .textContent =
+      todosModulos.size;
+}
+
+iniciarArquitetura();
+</script>
+
+</body>
+</html>
